@@ -9,7 +9,7 @@ var Score;
 // wait for browser to load 
 window.onload = function() {  
     // define game
-    game = new Phaser.Game(1920,1080, Phaser.AUTO, '');
+    game = new Phaser.Game(1280,720, Phaser.AUTO, '');
     
     // define states
     game.state.add('Load', Load);

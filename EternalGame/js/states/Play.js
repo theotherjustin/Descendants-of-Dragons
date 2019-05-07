@@ -8,15 +8,15 @@ Play.prototype = {
 		//castle tilesprite
 		castle = game.add.tileSprite(0,0,game.width, game.height, 'Castle');
 
-		sign = game.add.sprite(0,450, 'key', 'sign');
+		sign = game.add.sprite(0,620, 'key', 'sign');
 
-		player = new Player(game, game.width/2, game.height/2);
+		player = new Player(game, game.width/2, 400, 2, 1);
 		game.add.existing(player);
 
 		//platforms
 		this.platformGroup = game.add.group();
 		//spawn platform
-		plat = game.add.sprite(game.width/2 - 50, 700, 'key', 'Platform');
+		plat = game.add.sprite(game.width/2 - 50, 500, 'key', 'Platform');
 		game.physics.enable(plat,Phaser.Physics.ARCADE);
 		plat.body.immovable = true;
 		this.platformGroup.add(plat);
