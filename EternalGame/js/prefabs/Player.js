@@ -11,6 +11,7 @@ var Player = function(game, x, y, jumps, gemType){ //Player prefab
 	this.animations.play('GreenSpin');
 	this.jumps = jumps;
 	this.gemType = gemType;
+	this.jump = game.add.audio('jump');
 
 }
 //tell phaser which constructor to use
@@ -27,6 +28,7 @@ Player.prototype.update = function() {
 		if(game.input.keyboard.justPressed(Phaser.Keyboard.UP) && ((this.jumps > 0 && this.gemType == 1) || this.body.touching.down)){
 			this.body.velocity.y = -600;
 			//decrease jump counter
+			this.jump.play('',0, 0.3, false);
 			this.jumps--;
 		}
 

@@ -35,8 +35,8 @@ MainMenu.prototype = {
     	playText = game.add.text(game.world.centerX, 480, 'Press SPACEBAR to Start!', { fontSize: '40px', fill: '#FFFF' });
     	playText.anchor.setTo(0.5);
 
-    	this.main = game.add.audio('main');
-    	this.main.play('', 0, 1, true);
+    	//this.main = game.add.audio('main');
+    	//this.main.play('', 0, 1, true);
 
     	//timer used to make play text flash
     	this.timer = game.time.create(false);	
@@ -48,7 +48,7 @@ MainMenu.prototype = {
 	},
 	update: function(){    
 		if(game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)){
-			this.main.stop();
+			//this.main.stop();
 			this.timer.stop();
 			game.state.start('Play');
 		}

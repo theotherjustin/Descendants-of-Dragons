@@ -22,10 +22,10 @@ Play.prototype = {
 		this.platformGroup.add(plat);
 
 		//add audio and begin looping background music
-		this.run = game.add.audio('run');
-    	this.run.play('', 0, 1, true);
+		//this.run = game.add.audio('run');
+    	//this.run.play('', 0, 1, true);
 		this.oofers = game.add.audio('oof');
-		this.jump = game.add.audio('jump');
+		
 		this.lazor = game.add.audio('lazor');
 	},
 	update:function(){
