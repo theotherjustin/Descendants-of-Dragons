@@ -14,25 +14,25 @@ MainMenu.prototype = {
     	titleText.fill = grd;
 
     	//basic instuctions
-    	var insText = game.add.text(game.world.centerX, 180, 'Escape being collected by the greedy knights by using \n        the UP arrow key to jump and double jump!', { fontSize: '22px', fill: '#ffffff' });
+    	var insText = game.add.text(game.world.centerX, 180, 'Arrow keys to move!', { fontSize: '22px', fill: '#ffffff' });
     	//add stroke to make text more readable
     	insText.stroke = '#000000';
     	insText.strokeThickness = 6;
     	insText.anchor.setTo(0.5);
 
-    	//explaining color matching aspect of the game
-    	var lazerText = game.add.text(game.world.centerX, 370, 'Dodge mage spells by matching the laser color!', { fontSize: '22px', fill: '#FFFF' });
-    	//add stroke to make text more readable
-    	lazerText.stroke = '#000000';
-    	lazerText.strokeThickness = 6;
-    	lazerText.anchor.setTo(0.5);
+        var insText2 = game.add.text(game.world.centerX, 220, 'Double jump as the kitsune, walljump as the Tanuki, crawl and attack as the Kamaitachi', { fontSize: '22px', fill: '#ffffff' });
+        //add stroke to make text more readable
+        insText2.stroke = '#000000';
+        insText2.strokeThickness = 6;
+        insText2.anchor.setTo(0.5);
+
 
     	//sign showing QWE controls
-    	sign = game.add.sprite(game.world.centerX,270, 'key', 'sign');
+    	sign = game.add.sprite(game.world.centerX,370, 'key', 'sign');
     	sign.anchor.setTo(0.5);
 
     	//play text
-    	playText = game.add.text(game.world.centerX, 480, 'Press SPACEBAR to Start!', { fontSize: '40px', fill: '#FFFF' });
+    	playText = game.add.text(game.world.centerX, 580, 'Press SPACEBAR to Start!', { fontSize: '40px', fill: '#ffffff' });
     	playText.anchor.setTo(0.5);
 
     	//this.main = game.add.audio('main');
