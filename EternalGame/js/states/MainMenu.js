@@ -6,11 +6,11 @@ MainMenu.prototype = {
 		game.add.sprite(0, 0, 'mainBack'); //menu background
 
 		//stylized title text
-		var titleText = game.add.text(game.world.centerX, 50, 'Gem Escape!', { fontSize: '80px'});
+		var titleText = game.add.text(game.world.centerX, 50, 'Spirits', { fontSize: '80px'});
 		titleText.anchor.setTo(0.5);
 		var grd = titleText.context.createLinearGradient(0, 0, 0, titleText.canvas.height);
     	grd.addColorStop(0, '#000000');   
-    	grd.addColorStop(1, '#ff35f8');
+    	grd.addColorStop(1, '#00ffff');
     	titleText.fill = grd;
 
     	//basic instuctions
