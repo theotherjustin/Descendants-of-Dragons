@@ -1,6 +1,7 @@
 var Play = function(game){
 	//define variables
 	var castle;
+	var player;
 };
 Play.prototype = {
 	create:function(){
@@ -9,13 +10,15 @@ Play.prototype = {
 
 		sign = game.add.sprite(0,450, 'key', 'sign');
 
-		var player = new Player(game, game.width/2, game.height/2);
+		player = new Player(game, game.width/2, game.height/2);
 		game.add.existing(player);
 
 		//platforms
 		this.platformGroup = game.add.group();
 		//spawn platform
-		plat = new sprite(620, 400, 'key', 'platform');
+		plat = game.add.sprite(game.width/2 - 50, 700, 'key', 'Platform');
+		game.physics.enable(plat,Phaser.Physics.ARCADE);
+		plat.body.immovable = true;
 		this.platformGroup.add(plat);
 
 		//add audio and begin looping background music
@@ -26,6 +29,6 @@ Play.prototype = {
 		this.lazor = game.add.audio('lazor');
 	},
 	update:function(){
-		
+		game.physics.arcade.collide(player, this.platformGroup);
 	}
 };

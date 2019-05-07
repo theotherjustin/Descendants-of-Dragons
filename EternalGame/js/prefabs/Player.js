@@ -3,7 +3,7 @@ var Player = function(game, x, y){ //Player prefab
 	Phaser.Sprite.call(this, game, x, y, 'key','GreenGem1');
 	game.physics.enable(this,Phaser.Physics.ARCADE);
 	this.anchor.set(0.5);
-	this.body.gravity.y = 1500;
+	this.body.gravity.y = 500;
 	this.animations.add("GreenSpin",['GreenGem1','GreenGem2','GreenGem3','Greengem4'], 10, true);
 	this.animations.add("RedSpin",['RedGem1','RedGem2','RedGem3','Redgem4'], 10, true);
 	this.animations.add("BlueSpin",['BlueGem1','BlueGem2','BlueGem3','Bluegem4', 'BlueGem5', 'BlueGem6', 'BlueGem7', 'BlueGem8'], 10, true);
@@ -16,15 +16,12 @@ Player.prototype = Object.create(Phaser.Sprite.prototype);
 Player.prototype.constructor = Player;
 
 Player.prototype.update = function() {
-	game.physics.arcade.collide(this, game.platformGroup);
 		if(this.body.touching.down){
 			//refresh double jump
 			jumps = 2;
 		}
 		//check for input and #of jumps or if player is on a platform
 		if(game.input.keyboard.justPressed(Phaser.Keyboard.UP) && (jumps > 0 || this.body.touching.down)){
-			//play jump sound
-			game.jump.play('', 0, 0.4, false);
 			this.body.velocity.y = -600;
 			//decrease jump counter
 			jumps--;
