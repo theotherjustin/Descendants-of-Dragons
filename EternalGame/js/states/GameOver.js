@@ -1,8 +1,6 @@
 var GameOver = function(game) {};
 GameOver.prototype = {
 	init: function(Score){ 
-		//pass in player score
-       this.Score = Score;
    },
 	create: function(){
 		//styleized game over text
@@ -14,8 +12,6 @@ GameOver.prototype = {
     	overText.fill = grd;
 
     	//display score
-    	var scoreText = game.add.text(game.world.centerX, 150, 'Score: ' + Score, { fontSize: '40px', fill: '#FFFF' });
-    	scoreText.anchor.setTo(0.5);
 
     	//play again
     	var playText = game.add.text(game.world.centerX, 350, 'Press SPACEBAR to Play Again!', { fontSize: '50px', fill: '#FFFF' });
