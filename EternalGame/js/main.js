@@ -3,6 +3,7 @@
 // define globals
 var game;
 var Score;
+var Unused;
 /*
 
 */
