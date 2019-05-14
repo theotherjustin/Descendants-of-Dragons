@@ -110,5 +110,7 @@ Player.prototype.update = function() {
 		if(this.y > 800){
 			this.x = 20;
 			this.y = 480;
+			this.body.velocity.x = 0;
+			this.body.velocity.y = 0;
 		}
 }
