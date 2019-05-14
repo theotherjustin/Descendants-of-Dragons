@@ -66,6 +66,15 @@ Player.prototype.update = function() {
         	this.wallcount = 0;
 		}
 
+
+		//Walljumping
+		if(game.input.keyboard.isDown(Phaser.Keyboard.LEFT) && !player.body.blocked.down && player.body.blocked.right && this.gemType == 2){
+			this.body.velocity.y = -650;
+        	this.body.velocity.x = -600;
+        	this.walljumping = true;
+        	this.wallcount = 0;
+		}
+
 		if(game.input.keyboard.isDown(Phaser.Keyboard.RIGHT) && !player.body.blocked.down && player.body.blocked.left && this.gemType == 2){
 			this.body.velocity.y = -650;
         	this.body.velocity.x = 600;
