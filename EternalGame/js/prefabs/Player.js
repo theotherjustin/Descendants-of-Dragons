@@ -65,6 +65,15 @@ Player.prototype.update = function() {
         	this.wallcount = 0;
 		}
 
+
+		//Walljumping
+		if(game.input.keyboard.isDown(Phaser.Keyboard.LEFT) && !player.body.blocked.down && player.body.blocked.right && this.gemType == 2){
+			this.body.velocity.y = -650;
+        	this.body.velocity.x = -600;
+        	this.walljumping = true;
+        	this.wallcount = 0;
+		}
+
 		if(game.input.keyboard.isDown(Phaser.Keyboard.RIGHT) && !player.body.blocked.down && player.body.blocked.left && this.gemType == 2){
 			this.body.velocity.y = -650;
         	this.body.velocity.x = 600;
@@ -100,5 +109,7 @@ Player.prototype.update = function() {
 		if(this.y > 800){
 			this.x = 20;
 			this.y = 480;
+			this.body.velocity.x = 0;
+			this.body.velocity.y = 0;
 		}
 }
