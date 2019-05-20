@@ -1,5 +1,9 @@
 "use strict";
-
+/*
+Team 3
+Justin Lee Hanette Le Victor Wang
+https://github.com/theotherjustin/Eternal-Game
+*/
 // define globals
 var game;
 var Score;

@@ -18,29 +18,20 @@ Level1.prototype = {
 		this.mapLayer = this.map.createLayer('Map Layout');
 		//this.decoLayer = this.map.createLayer('Foliage');
 		
-		
-
+		//prevent clipping
 		game.physics.arcade.TILE_BIAS = 32;
 
+		//instruction
 		sign = game.add.sprite(0,620, 'key', 'sign');
 
+		//add player
 		player = new Player(game, 20, 500, 2, 1);
 		game.add.existing(player);
 
-		/*platforms
-		this.platformGroup = game.add.group();
-		//spawn platform
-		plat = game.add.sprite(game.width/2 - 50, 500, 'key', 'Platform');
-		game.physics.enable(plat,Phaser.Physics.ARCADE);
-		plat.body.immovable = true;
-		this.platformGroup.add(plat);
-		*/
-		//add audio and begin looping background music
-		//this.run = game.add.audio('run');
-    	//this.run.play('', 0, 1, true);
-		this.oofers = game.add.audio('oof');
+	
+		//this.oofers = game.add.audio('oof');
 		
-		this.lazor = game.add.audio('lazor');
+		//this.lazor = game.add.audio('lazor');
 	},
 	update:function(){
 		//game.physics.arcade.collide(player, this.platformGroup);
@@ -50,6 +41,8 @@ Level1.prototype = {
 			// this.timer.stop();
 			// game.state.start('Play');
 		// }
+		//move to the next level
+		
 		if(player.x > 1280) {
 			game.state.start('Play');
 		}
