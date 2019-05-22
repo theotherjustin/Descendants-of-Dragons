@@ -13,7 +13,7 @@ var Player = function(game, x, y, jumps, gemType){ //Player prefab
 	this.animations.play('GreenSpin');
 	this.jumps = jumps;
 	this.gemType = gemType;
-	this.body.setCircle(22,3);
+	this.body.setCircle(22,1, -4);
 	this.body.maxVelocity.x = 500;
     this.body.maxVelocity.y = 1500;
     this.body.drag.setTo(800, 0);
@@ -63,13 +63,14 @@ Player.prototype.update = function() {
 			this.body.velocity.x += 30;
 		}*/
 
+		//WallSlide
 		if(game.input.keyboard.isDown(Phaser.Keyboard.RIGHT) && !player.body.blocked.down && player.body.blocked.right && this.gemType == 2){
 			this.body.velocity.y = 0;
 		}
 		if(game.input.keyboard.isDown(Phaser.Keyboard.LEFT) && !player.body.blocked.down && player.body.blocked.left && this.gemType == 2){
 			this.body.velocity.y = 0;
 		}
-		
+
 		//Walljumping
 		if(game.input.keyboard.isDown(Phaser.Keyboard.LEFT) && !player.body.blocked.down && player.body.blocked.right && this.gemType == 2){
 			this.body.velocity.y = -650;
@@ -86,12 +87,6 @@ Player.prototype.update = function() {
         	//this.walljumping = true;
         	this.wallcount = 0;
 		}
-
-
-
-		//#####
-		
-
 
 		//Transformations
 		if(game.input.keyboard.justPressed(Phaser.Keyboard.Q) && this.gemType != 1){
