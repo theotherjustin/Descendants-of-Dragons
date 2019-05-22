@@ -36,5 +36,7 @@ Play.prototype = {
 	update:function(){
 		//game.physics.arcade.collide(player, this.platformGroup);
 		game.physics.arcade.collide(player, this.mapLayer);
+			game.debug.bodyInfo(player, 32, 32);
+        game.debug.body(player);
 	}
 };
