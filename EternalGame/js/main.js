@@ -20,7 +20,8 @@ window.onload = function() {
     game.state.add('Load', Load);
     game.state.add('MainMenu', MainMenu);
 	game.state.add('Level1', Level1);
-    game.state.add('Play', Play);
+    game.state.add('Level3', Level3);
+    game.state.add('Level5', Level5);
     game.state.add('GameOver', GameOver);
     game.state.start('Load');
 }

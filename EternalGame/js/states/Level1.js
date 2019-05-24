@@ -44,7 +44,7 @@ Level1.prototype = {
 		//move to the next level
 		
 		if(player.x > 1280) {
-			game.state.start('Play');
+			game.state.start('Level3');
 		}
 	}
 };

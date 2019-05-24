@@ -42,7 +42,8 @@ Player.prototype.update = function() {
 		}
 		//check for input and #of jumps or if player is on a platform
 		if(game.input.keyboard.justPressed(Phaser.Keyboard.UP) && ( (this.jumps > 0 && this.gemType == 1) || this.body.blocked.down) ){
-			this.body.velocity.y = -900;			
+			this.body.velocity.y = -900;	
+			this.jumps--;		
 			this.jump.play('',0, 0.3, false);
 		}
 

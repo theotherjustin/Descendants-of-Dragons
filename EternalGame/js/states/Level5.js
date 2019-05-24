@@ -1,9 +1,9 @@
-var Play = function(game){
+var Level5 = function(game){
 	//define variables
 	//var castle;
 	var player;
 };
-Play.prototype = {
+Level5.prototype = {
 	preload: function(){
 		//load level
 		game.load.path = 'assets/img/';
