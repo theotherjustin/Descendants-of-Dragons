@@ -16,7 +16,7 @@ var Player = function(game, x, y, jumps, gemType){ //Player prefab
 	this.body.setCircle(22,1, -4);
 	this.body.maxVelocity.x = 500;
     this.body.maxVelocity.y = 1500;
-    this.body.drag.setTo(800, 0);
+    this.body.drag.setTo(1750, 0);
 
 	// ##### = stuff to help with wallcling, still figuring it out
 	//this.walljumping = false;
