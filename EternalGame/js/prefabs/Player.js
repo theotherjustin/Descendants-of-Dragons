@@ -40,7 +40,7 @@ Player.prototype.update = function() {
 			this.jumps = 2;
 		}
 		//check for input and #of jumps or if player is on a platform
-		if(game.input.keyboard.justPressed(Phaser.Keyboard.UP) && ( (this.jumps > 0 && this.SpiritType == 1) || this.body.blocked.down) ){
+		if(game.input.keyboard.justPressed(Phaser.Keyboard.UP) && ( (this.jumps > 0 && this.SpiritType == 1) || this.body.blocked.down || this.body.touching.down) ){
 			this.body.velocity.y = -900;	
 			this.jumps--;		
 			this.jump.play('',0, 0.3, false);

@@ -23,6 +23,7 @@ Level3.prototype = {
 
 		block = game.add.sprite(100,400, 'key', 'Block');
 		game.physics.enable(block,Phaser.Physics.ARCADE);
+		block.body.collideWorldBounds = true;
 		block.scale.setTo(2, 2);
 		block.body.gravity.y = 1000;
 		block.body.drag.setTo(1000, 0);
