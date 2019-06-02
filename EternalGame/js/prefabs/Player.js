@@ -17,12 +17,9 @@ var Player = function(game, x, y, jumps, SpiritType){ //Player prefab
     this.body.maxVelocity.y = 1500;
     this.body.drag.setTo(1750, 0);
 
-	// ##### = stuff to help with wallcling, still figuring it out
-	//this.walljumping = false;
-	//this.wallcount = 0;
+
 	this.jump = game.add.audio('jump');
-	//this.body.drag.setTo(1200, 0);
-	//this.body.maxVelocity.x = 400;
+
 
 }
 //tell phaser which constructor to use
@@ -30,11 +27,7 @@ Player.prototype = Object.create(Phaser.Sprite.prototype);
 Player.prototype.constructor = Player;
 
 Player.prototype.update = function() {
-		//#####
-		/*this.wallcount = this.wallcount + 1;
-		if(this.wallcount >= 50){
-			this.walljumping = false;
-		}*/
+
 		if(this.body.blocked.down || this.body.touching.down){
 			//refresh double jump
 			this.jumps = 2;
@@ -54,15 +47,6 @@ Player.prototype.update = function() {
 			this.body.acceleration.x = 0;
 		}
 
-		//#####
-		/*if(game.input.keyboard.isDown(Phaser.Keyboard.LEFT) && !this.body.blocked.down){
-			this.body.velocity.x += -30;
-		}
-
-		if(game.input.keyboard.isDown(Phaser.Keyboard.RIGHT) && !this.body.blocked.down){
-			this.body.velocity.x += 30;
-		}*/
-
 		//WallSlide
 		if(game.input.keyboard.isDown(Phaser.Keyboard.RIGHT) && !player.body.blocked.down && player.body.blocked.right && this.SpiritType == 2){
 			this.body.velocity.y = 0;
@@ -75,7 +59,6 @@ Player.prototype.update = function() {
 		if(game.input.keyboard.isDown(Phaser.Keyboard.LEFT) && !player.body.blocked.down && player.body.blocked.right && this.SpiritType == 2){
 			this.body.velocity.y = -650;
         	this.body.velocity.x = -600;
-        	//this.walljumping = true;
         	this.wallcount = 0;
 		}
 
@@ -83,8 +66,7 @@ Player.prototype.update = function() {
 		//Walljumping
 		if(game.input.keyboard.isDown(Phaser.Keyboard.RIGHT) && !player.body.blocked.down && player.body.blocked.left && this.SpiritType == 2){
 			this.body.velocity.y = -650;
-        	this.body.velocity.x = 600;
-        	//this.walljumping = true;
+        	this.body.velocity.x = 600;        	
         	this.wallcount = 0;
 		}
 
