@@ -7,7 +7,6 @@ https://github.com/theotherjustin/Eternal-Game
 // define globals
 var game;
 var Score;
-var Unused;
 /*
 
 */
@@ -15,7 +14,6 @@ var Unused;
 window.onload = function() {  
     // define game
     game = new Phaser.Game(1280,720, Phaser.AUTO, '');
-    
     // define states
     game.state.add('Load', Load);
     game.state.add('MainMenu', MainMenu);
