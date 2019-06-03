@@ -10,6 +10,8 @@ var Player = function(game, x, y, jumps, SpiritType){ //Player prefab
 	this.animations.add("ox",['Ox'], 10, true);
 	this.animations.play('bun');
 	this.anchor.set(0.5);
+	this.spawnX = x;
+	this.spawnY = y;
 	this.jumps = jumps;
 	this.SpiritType = SpiritType;
 	this.body.setCircle(22, 0, 12);
@@ -90,9 +92,28 @@ Player.prototype.update = function() {
 		}
 
 		if(this.y > 800){
-			this.x = 20;
-			this.y = 480;
-			this.body.velocity.x = 0;
-			this.body.velocity.y = 0;
+		var emitter = game.add.emitter(this.x,this.y -90, 50);
+		emitter.makeParticles('bubble');
+		emitter.setYSpeed(-650, -900);
+		emitter.setAlpha(0.25, 1);
+		emitter.start(false, 5000, 1, 90);
+
+		this.alpha = 0;
+		this.x = this.spawnX;
+		this.y = this.spawnY - 30;
+		this.body.velocity.x = 0;
+		this.body.velocity.y = 0;
+		game.time.events.add(Phaser.Timer.SECOND * 1, this.respawn, this);
 		}
+}
+
+Player.prototype.respawn = function(){
+		var emitter = game.add.emitter(this.spawnX + 10, 0, 90);
+		emitter.makeParticles('bubble');
+		emitter.setYSpeed(350, 700);
+		emitter.setAlpha(0.25, 1);
+		emitter.start(false, 2000, 1, 50);
+		game.add.tween(emitter).to( { alpha: 0 }, 2000, Phaser.Easing.Linear.None, true, 0);
+		game.add.tween(this).to( { alpha: 1 }, 1000, Phaser.Easing.Linear.None, true, 0);
+	
 }
