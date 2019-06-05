@@ -5,6 +5,7 @@ Load.prototype = {
 		game.load.atlas('key', 'assets/img/spritesheet.png', 'assets/img/sprites.json');
 		game.load.image('Castle', 'assets/img/Castle.png');
 		game.load.image('mainBack', 'assets/img/MainMenu.png');
+		game.load.image('bubble', 'assets/img/bbl.png');
 		game.load.audio('run', 'assets/audio/mood.mp3');
 		game.load.audio('main', 'assets/audio/meow.mp3');
         game.load.audio('jump', 'assets/audio/jump.mp3');
