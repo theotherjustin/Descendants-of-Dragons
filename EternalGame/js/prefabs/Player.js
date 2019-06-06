@@ -17,7 +17,7 @@ var Player = function(game, x, y, jumps, SpiritType){ //Player prefab
 	this.body.setCircle(22, 0, 12);
 	this.body.maxVelocity.x = 500;
     this.body.maxVelocity.y = 1500;
-    this.body.drag.setTo(1750, 0);
+    this.body.drag.setTo(2000, 0);
 
 
 	this.jump = game.add.audio('jump');
@@ -42,9 +42,9 @@ Player.prototype.update = function() {
 		}
 
 		if(game.input.keyboard.isDown(Phaser.Keyboard.LEFT)){
-			this.body.acceleration.x = -1500;
+			this.body.acceleration.x = -3000;
 		}else if(game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)){
-			this.body.acceleration.x = 1500;
+			this.body.acceleration.x = 3000;
 		}else{
 			this.body.acceleration.x = 0;
 		}
