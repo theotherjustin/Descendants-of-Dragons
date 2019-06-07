@@ -18,6 +18,7 @@ Level3.prototype = {
 		this.map.setCollisionByExclusion([]);
 		this.mapLayer = this.map.createLayer('Tile Layer 1');
 
+
 		//prevent clipping
 		game.physics.arcade.TILE_BIAS = 32;
 
@@ -46,7 +47,7 @@ Level3.prototype = {
 		game.physics.arcade.collide(player, block, this.blockColl, null, this);
 
 		game.debug.bodyInfo(player, 32, 32);
-        game.debug.body(player);
+        game.debug.body(this.map);
 
         if(player.x > 1280) {
 			game.state.start('Level5');

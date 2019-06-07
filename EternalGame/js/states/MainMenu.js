@@ -6,7 +6,7 @@ MainMenu.prototype = {
 		game.add.sprite(0, 0, 'mainBack'); //menu background
 
 		//stylized title text
-		var titleText = game.add.text(game.world.centerX, 50, 'Spirits', { fontSize: '80px'});
+		var titleText = game.add.text(game.world.centerX, 50, 'Descendants of Dragons', { fontSize: '70px'});
 		titleText.anchor.setTo(0.5);
 		var grd = titleText.context.createLinearGradient(0, 0, 0, titleText.canvas.height);
     	grd.addColorStop(0, '#000000');   
@@ -20,7 +20,7 @@ MainMenu.prototype = {
     	insText.strokeThickness = 6;
     	insText.anchor.setTo(0.5);
 
-        var insText2 = game.add.text(game.world.centerX, 220, 'Double jump as the kitsune, walljump as the Tanuki, crawl and attack as the Kamaitachi', { fontSize: '22px', fill: '#ffffff' });
+        var insText2 = game.add.text(game.world.centerX, 220, 'Double jump as the Bunny, wall slide & jump as the Monkey, push boulders as the Ox', { fontSize: '22px', fill: '#ffffff' });
         //add stroke to make text more readable
         insText2.stroke = '#000000';
         insText2.strokeThickness = 6;
