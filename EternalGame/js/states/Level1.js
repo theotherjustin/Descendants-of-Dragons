@@ -38,7 +38,7 @@ Level1.prototype = {
 		game.physics.arcade.collide(player, this.mapLayer);
 		game.physics.arcade.collide(player.emitter, this.mapLayer);
 		//game.debug.bodyInfo(player, 32, 32);
-       // game.debug.body(player);
+        game.debug.body(player);
 		// if(game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)){
 			// this.main.stop();
 			// this.timer.stop();
