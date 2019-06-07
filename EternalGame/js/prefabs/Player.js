@@ -42,9 +42,9 @@ Player.prototype.update = function() {
 		}
 
 		if(game.input.keyboard.isDown(Phaser.Keyboard.LEFT)){
-			this.body.acceleration.x = -3000;
+			this.body.acceleration.x = -2000;
 		}else if(game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)){
-			this.body.acceleration.x = 3000;
+			this.body.acceleration.x = 2000;
 		}else{
 			this.body.acceleration.x = 0;
 		}
