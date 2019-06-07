@@ -37,7 +37,7 @@ Level3.prototype = {
 		game.add.existing(player);
 
 		//this.oofers = game.add.audio('oof');
-		
+
 		//this.lazor = game.add.audio('lazor');
 	},
 	update:function(){
@@ -47,7 +47,7 @@ Level3.prototype = {
 		game.physics.arcade.collide(player, block, this.blockColl, null, this);
 
 		game.debug.bodyInfo(player, 32, 32);
-        game.debug.body(this.map);
+        game.debug.body(player);
 
         if(player.x > 1280) {
 			game.state.start('Level5');
