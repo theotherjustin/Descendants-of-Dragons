@@ -92,17 +92,13 @@ Player.prototype.update = function() {
 		}
 
 		if(game.input.keyboard.isDown(Phaser.Keyboard.LEFT)){
-<<<<<<< Updated upstream
 			this.body.acceleration.x = -2000;
-=======
 			if(this.respawning == true){
 				this.animations.currentAnim.speed = 5;
 				this.body.velocity.x = -20;
 			}else{
 				this.body.acceleration.x = -2000;
 			}
-
->>>>>>> Stashed changes
 		}else if(game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)){
 			this.body.acceleration.x = 2000;
 		}else{
@@ -148,13 +144,10 @@ Player.prototype.update = function() {
 		}
 
 		if(game.input.keyboard.justPressed(Phaser.Keyboard.W) && this.SpiritType != 2){
-<<<<<<< Updated upstream
-			this.animations.play('monka');
+			this.animations.play('mon');
 			this.body.setCircle(22, 12, 5);
-=======
 			this.animations.play('mon');
 			this.body.setSize(72, 44);
->>>>>>> Stashed changes
 			this.SpiritType = 2;
 		}
 
