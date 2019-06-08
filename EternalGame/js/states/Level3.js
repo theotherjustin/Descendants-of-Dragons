@@ -7,14 +7,13 @@ Level3.prototype = {
 		//load level
 		game.load.path = 'assets/img/';
 		game.load.tilemap('level3', 'level3Final.json', null, Phaser.Tilemap.TILED_JSON);
-		game.load.spritesheet('tilesheet3', 'floors.png', 16, 16);
 	},
 	create:function(){
-		//beckground
+		//background
 		castle = game.add.tileSprite(0,-200,1920, 1080, 'Castle');
 		//tilemap setup
 		this.map = game.add.tilemap('level3');
-		this.map.addTilesetImage('floors', 'tilesheet3');
+		this.map.addTilesetImage('floors', 'tilesheetf');
 		this.map.setCollisionByExclusion([]);
 		this.mapLayer = this.map.createLayer('Tile Layer 1');
 

@@ -29,7 +29,6 @@ Level1.prototype = {
 		player = new Player(game, 50, 450, 2, 1);
 		game.add.existing(player);
 
-		
 	},
 	update:function(){
 		//collide with the map

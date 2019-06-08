@@ -7,16 +7,14 @@ Level5.prototype = {
 		//load level
 		game.load.path = 'assets/img/';
 		game.load.tilemap('level5', 'level5Final.json', null, Phaser.Tilemap.TILED_JSON);
-		game.load.spritesheet('tilesheet5f', 'floors.png', 16, 16);
-		game.load.spritesheet('tilesheet5p', 'platforms.png', 16, 16);
 	},
 	create:function(){
 		//background img
 		castle = game.add.tileSprite(0,-200,1920, 1080, 'Castle');
 		//setup tilemap
 		this.map = game.add.tilemap('level5');
-		this.map.addTilesetImage('floors', 'tilesheet5f');
-		this.map.addTilesetImage('platforms', 'tilesheet5p');
+		this.map.addTilesetImage('floors', 'tilesheetf');
+		this.map.addTilesetImage('platforms', 'tilesheetp');
 		this.map.setCollisionByExclusion([]);
 		this.mapLayer = this.map.createLayer('Tile Layer 1');
 		
@@ -30,7 +28,6 @@ Level5.prototype = {
 		player = new Player(game, 20, 550, 2, 1);
 		game.add.existing(player);
 
-
 	},
 	update:function(){
 		//collision
@@ -39,5 +36,11 @@ Level5.prototype = {
 		//debug
 		game.debug.bodyInfo(player, 32, 32);
 		game.debug.body(player);
+
+				//next lvl
+		if(player.x > 1280) {
+		game.state.start('Level8');
+		}
+
 	}
 };

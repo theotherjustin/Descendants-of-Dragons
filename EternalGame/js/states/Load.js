@@ -12,6 +12,8 @@ Load.prototype = {
         game.load.audio('jump', 'assets/audio/jump.mp3');
         game.load.audio('oof', 'assets/audio/oof.mp3');
         game.load.audio('lazor', 'assets/audio/lazor.mp3');
+        game.load.spritesheet('tilesheetf', 'assets/img/floors.png', 16, 16);
+		game.load.spritesheet('tilesheetp', 'assets/img/platforms.png', 16, 16);
 	},
 	create: function(){
 		//display loading..
