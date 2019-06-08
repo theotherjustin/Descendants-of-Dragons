@@ -120,7 +120,7 @@ Player.prototype.update = function() {
 
 		if(game.input.keyboard.justPressed(Phaser.Keyboard.W) && this.SpiritType != 2){
 			this.animations.play('monka');
-			this.body.setCircle(22, 12, 5);
+			this.body.setSize(72, 44);
 			this.SpiritType = 2;
 		}
 
