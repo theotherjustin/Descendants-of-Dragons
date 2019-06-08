@@ -22,10 +22,10 @@ Level3.prototype = {
 		game.physics.arcade.TILE_BIAS = 32;
 
 		//add the block
-		block = game.add.sprite(100,400, 'key', 'block');
+		block = game.add.sprite(150,400, 'key', 'block');
 		game.physics.enable(block,Phaser.Physics.ARCADE);
 		block.body.collideWorldBounds = true;
-		block.scale.setTo(2, 2);
+		block.scale.setTo(1.75, 1.75);
 		block.body.gravity.y = 1000;
 		block.body.drag.setTo(1000, 0);
 		block.body.immovable = true;

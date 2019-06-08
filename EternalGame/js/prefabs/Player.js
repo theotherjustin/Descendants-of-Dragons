@@ -137,7 +137,7 @@ Player.prototype.update = function() {
 	}
 	if(game.input.keyboard.justPressed(Phaser.Keyboard.E) && this.SpiritType != 3){
 		this.animations.play('ox');
-		this.body.setSize(150, 90);
+		this.body.setSize(120, 80);
 		this.SpiritType = 3;
 	}
 
