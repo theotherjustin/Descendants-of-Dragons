@@ -7,7 +7,9 @@ var Player = function(game, x, y, jumps, SpiritType){ //Player prefab
 	this.body.gravity.y = 2000;
 	this.animations.add("bun",['bun3'], 10, true);
 	this.animations.add("bunRun",['bun3', 'bun4', 'bun5', 'bun6', 'bun1', 'bun2'], 10, true);
-	this.animations.add("monka",['mon'], 10, true);
+	this.animations.add("mon",['mon7'], 10, true);
+	this.animations.add("monRun",['mon3','mon4','mon5','mon6','mon7'], 10, true);
+	this.animations.add("monClimb",['mon1'], 10, true);
 	this.animations.add("ox",['ox2'], 10, true);
 	this.animations.add("oxRun",['ox2', 'ox3', 'ox4', 'ox5', 'ox6', 'ox1'], 10, true);
 	this.animations.play('bun');
@@ -38,8 +40,8 @@ Player.prototype.update = function() {
 		}
 		//check for input and #of jumps or if player is on a platform
 		if(game.input.keyboard.justPressed(Phaser.Keyboard.UP) && ( (this.jumps > 0 && this.SpiritType == 1) || this.body.blocked.down || this.body.touching.down) ){
-			this.body.velocity.y = -900;	
-			this.jumps--;		
+			this.body.velocity.y = -900;
+			this.jumps--;
 			this.jump.play('',0, 0.3, false);
 		}
 
@@ -49,6 +51,9 @@ Player.prototype.update = function() {
 			}
 			if(this.SpiritType == 1){
 				this.animations.play('bunRun');
+			}
+			if(this.SpiritType == 2){
+				this.animations.play('monRun');
 			}
 
 			if(this.SpiritType == 3){
@@ -61,8 +66,11 @@ Player.prototype.update = function() {
 				this.scale.x *= -1;
 			}
 			if(this.SpiritType == 1){
-				
 				this.animations.play('bunRun');
+			}
+
+			if(this.SpiritType == 2){
+				this.animations.play('monRun');
 			}
 
 			if(this.SpiritType == 3){
@@ -72,8 +80,11 @@ Player.prototype.update = function() {
 
 		if(this.body.velocity.x == 0){
 			if(this.SpiritType == 1){
-				
+
 				this.animations.play('bun');
+			}
+			if(this.SpiritType == 2){
+				this.animations.play('mon');
 			}
 			if(this.SpiritType == 3){
 				this.animations.play('ox');
@@ -81,7 +92,17 @@ Player.prototype.update = function() {
 		}
 
 		if(game.input.keyboard.isDown(Phaser.Keyboard.LEFT)){
+<<<<<<< Updated upstream
 			this.body.acceleration.x = -2000;
+=======
+			if(this.respawning == true){
+				this.animations.currentAnim.speed = 5;
+				this.body.velocity.x = -20;
+			}else{
+				this.body.acceleration.x = -2000;
+			}
+
+>>>>>>> Stashed changes
 		}else if(game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)){
 			this.body.acceleration.x = 2000;
 		}else{
@@ -91,9 +112,17 @@ Player.prototype.update = function() {
 		//WallSlide
 		if(game.input.keyboard.isDown(Phaser.Keyboard.RIGHT) && !player.body.blocked.down && player.body.blocked.right && this.SpiritType == 2){
 			this.body.velocity.y = 0;
+			if (this.scale.x > 0){
+				this.scale.x *= -1;
+			}
+			this.animations.play('monClimb');
 		}
 		if(game.input.keyboard.isDown(Phaser.Keyboard.LEFT) && !player.body.blocked.down && player.body.blocked.left && this.SpiritType == 2){
 			this.body.velocity.y = 0;
+			if (this.scale.x < 0){
+				this.scale.x *= -1;
+			}
+			this.animations.play('monClimb');
 		}
 
 		//Walljumping
@@ -107,7 +136,7 @@ Player.prototype.update = function() {
 		//Walljumping
 		if(game.input.keyboard.isDown(Phaser.Keyboard.RIGHT) && !player.body.blocked.down && player.body.blocked.left && this.SpiritType == 2){
 			this.body.velocity.y = -650;
-			this.body.velocity.x = 600;        	
+			this.body.velocity.x = 600;
 			this.wallcount = 0;
 		}
 
@@ -119,8 +148,13 @@ Player.prototype.update = function() {
 		}
 
 		if(game.input.keyboard.justPressed(Phaser.Keyboard.W) && this.SpiritType != 2){
+<<<<<<< Updated upstream
 			this.animations.play('monka');
 			this.body.setCircle(22, 12, 5);
+=======
+			this.animations.play('mon');
+			this.body.setSize(72, 44);
+>>>>>>> Stashed changes
 			this.SpiritType = 2;
 		}
 
