@@ -3,7 +3,7 @@ Load.prototype = {
 	preload: function(){
 		//load all the assets
 		game.load.atlas('key', 'assets/img/spritesheet.png', 'assets/img/sprites.json');
-		game.load.atlas('playerKey', 'assets/img/spritestest.png', 'assets/img/spritestest.json');
+		game.load.atlas('playerKey', 'assets/img/playersheet.png', 'assets/img/playersheet.json');
 		game.load.image('Castle', 'assets/img/Castle.png');
 		game.load.image('mainBack', 'assets/img/MainMenu.png');
 		game.load.image('bubble', 'assets/img/bbl.png');
@@ -21,5 +21,5 @@ Load.prototype = {
     	//move to mainmenu
         game.state.start('MainMenu');
     }
-	
+
 };

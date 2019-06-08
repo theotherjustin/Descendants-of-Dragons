@@ -78,18 +78,6 @@ Player.prototype.update = function() {
 			}
 		}
 
-		if(this.body.velocity.x == 0){
-			if(this.SpiritType == 1){
-
-				this.animations.play('bun');
-			}
-			if(this.SpiritType == 2){
-				this.animations.play('mon');
-			}
-			if(this.SpiritType == 3){
-				this.animations.play('ox');
-			}
-		}
 
 		if(game.input.keyboard.isDown(Phaser.Keyboard.LEFT)){
 			this.body.acceleration.x = -2000;
@@ -112,13 +100,23 @@ Player.prototype.update = function() {
 				this.scale.x *= -1;
 			}
 			this.animations.play('monClimb');
-		}
-		if(game.input.keyboard.isDown(Phaser.Keyboard.LEFT) && !player.body.blocked.down && player.body.blocked.left && this.SpiritType == 2){
+		} else if(game.input.keyboard.isDown(Phaser.Keyboard.LEFT) && !player.body.blocked.down && player.body.blocked.left && this.SpiritType == 2){
 			this.body.velocity.y = 0;
 			if (this.scale.x < 0){
 				this.scale.x *= -1;
 			}
 			this.animations.play('monClimb');
+			
+		} else if(this.body.velocity.x == 0){
+			if(this.SpiritType == 1){
+				this.animations.play('bun');
+			}
+			if(this.SpiritType == 2){
+				this.animations.play('mon');
+			}
+			if(this.SpiritType == 3){
+				this.animations.play('ox');
+			}
 		}
 
 		//Walljumping
@@ -146,7 +144,6 @@ Player.prototype.update = function() {
 		if(game.input.keyboard.justPressed(Phaser.Keyboard.W) && this.SpiritType != 2){
 			this.animations.play('mon');
 			this.body.setCircle(22, 12, 5);
-			this.animations.play('mon');
 			this.body.setSize(72, 44);
 			this.SpiritType = 2;
 		}
