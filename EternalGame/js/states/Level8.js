@@ -88,7 +88,11 @@ Level8.prototype = {
 		player.animations.currentAnim.speed = 10;
 		//reposition
 		player.x = player.spawnX;
-		player.y = player.spawnY;
+		player.y = player.spawnY - 30;
+		block.x =460;
+		block.y =120;
+		block.body.velocity.x = 0;
+		block.body.velocity.y = 0;
 		//for particle effect and fade in
 		player.respawn();
 		//renable movement
