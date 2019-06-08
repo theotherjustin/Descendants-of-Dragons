@@ -23,5 +23,5 @@ Load.prototype = {
     	//move to mainmenu
         game.state.start('MainMenu');
     }
-	
+
 };
