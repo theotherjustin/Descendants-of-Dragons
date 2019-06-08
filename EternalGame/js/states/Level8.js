@@ -26,8 +26,8 @@ Level8.prototype = {
 		game.physics.enable(block,Phaser.Physics.ARCADE);
 		block.body.collideWorldBounds = true;
 		block.scale.setTo(3, 0.75);
-		block.body.gravity.y = 1000;
-		block.body.drag.setTo(50, 0);
+		block.body.gravity.y = 2000;
+		block.body.drag.setTo(10, 0);
 		block.body.immovable = true;
 
 		//create polution hazard
