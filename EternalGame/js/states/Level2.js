@@ -13,14 +13,19 @@ Level2.prototype = {
 	},
 	create:function(){
 		//forest tilesprite
+		respawning = false;
 		castle = game.add.tileSprite(0,-200,1920, 1080, 'Castle');
 		this.map = game.add.tilemap('level2');
 		this.map.addTilesetImage('floors', 'tilesheet2f');
 		this.map.addTilesetImage('platforms', 'tilesheet2p');
 		this.map.setCollisionByExclusion([]);
 		this.mapLayer = this.map.createLayer('Tile Layer 1');
-		this.pollutionLayer = this.map.createLayer('Pollution');
-
+		this.pollutionGroup = game.add.group();
+		var purp = game.add.sprite(706, 370, 'key', 'purp');
+		game.physics.enable(purp, Phaser.Physics.ARCADE);
+		purp.immovable = true;
+		purp.body.moves = false;
+		this.pollutionGroup.add(purp);
 
 		//prevent clipping
 		game.physics.arcade.TILE_BIAS = 32;
@@ -35,8 +40,10 @@ Level2.prototype = {
 	update:function(){
 
 		game.physics.arcade.collide(player, this.mapLayer);
-		game.physics.arcade.collide(player, this.pollutionLayer, this.pColl, null, this);
-
+		if(player.respawning == false){
+			game.physics.arcade.collide(player, this.pollutionGroup, this.pColl, null, this);
+		}
+		
 		game.debug.bodyInfo(player, 32, 32);
         game.debug.body(player);
 
@@ -45,8 +52,17 @@ Level2.prototype = {
 		}
 	},
 	pColl:function(){
+		player.respawning = true;
 		game.add.tween(player).to( { alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0);
-		game.time.events.add(Phaser.Timer.SECOND, player.respawn(), this);
+		game.time.events.add(Phaser.Timer.SECOND * 1, this.respawn, this);
+	},
+	respawn:function(){
+		game.add.tween(player).to( { alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0);
+		player.animations.currentAnim.speed = 10;
+		player.x = 20;
+		player.y = 550;
+		player.respawn();
+		player.respawning = false;
 
 	}
 };

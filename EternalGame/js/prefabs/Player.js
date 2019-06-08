@@ -15,6 +15,7 @@ var Player = function(game, x, y, jumps, SpiritType){ //Player prefab
 	this.spawnX = x;
 	this.spawnY = y;
 	this.jumps = jumps;
+	this.respawning = false;
 	this.SpiritType = SpiritType;
 	this.body.setSize(72, 80);
 	this.body.maxVelocity.x = 500;
@@ -81,9 +82,20 @@ Player.prototype.update = function() {
 		}
 
 		if(game.input.keyboard.isDown(Phaser.Keyboard.LEFT)){
-			this.body.acceleration.x = -2000;
+			if(this.respawning == true){
+				this.animations.currentAnim.speed = 5;
+				this.body.velocity.x = -20;
+			}else{
+				this.body.acceleration.x = -2000;
+			}
+			
 		}else if(game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)){
-			this.body.acceleration.x = 2000;
+			if(this.respawning == true){
+				this.animations.currentAnim.speed = 5;
+				this.body.velocity.x = 20;
+			}else{
+				this.body.acceleration.x = 2000;
+			}
 		}else{
 			this.body.acceleration.x = 0;
 		}
@@ -142,17 +154,19 @@ Player.prototype.update = function() {
 			this.y = this.spawnY - 30;
 			this.body.velocity.x = 0;
 			this.body.velocity.y = 0;
+			this.respawning = true;
 			game.time.events.add(Phaser.Timer.SECOND * 1, this.respawn, this);
 		}
 	}
 
 	Player.prototype.respawn = function(){
-		var emitter = game.add.emitter(this.spawnX + 10, 0, 90);
+		var emitter = game.add.emitter(this.spawnX + 10, -20, 90);
 		emitter.makeParticles('bubble');
 		emitter.setYSpeed(350, 700);
-		emitter.setAlpha(0.25, 0.5);
+		emitter.setAlpha(0.25, 1);
 		emitter.start(false, 2000, 1, 50);
-		game.add.tween(emitter).to( { alpha: 0 }, 2000, Phaser.Easing.Linear.None, true, 0);
+		//game.add.tween(emitter).to( { alpha: 0 }, 2000, Phaser.Easing.Linear.None, true, 0);
 		game.add.tween(this).to( { alpha: 1 }, 800, Phaser.Easing.Linear.None, true, 0);
+		this.respawning = false;
 
 	}

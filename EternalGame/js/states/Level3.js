@@ -22,7 +22,7 @@ Level3.prototype = {
 		//prevent clipping
 		game.physics.arcade.TILE_BIAS = 32;
 
-		block = game.add.sprite(100,400, 'key', 'Block');
+		block = game.add.sprite(100,400, 'key', 'block');
 		game.physics.enable(block,Phaser.Physics.ARCADE);
 		block.body.collideWorldBounds = true;
 		block.scale.setTo(2, 2);
