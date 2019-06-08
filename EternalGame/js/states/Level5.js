@@ -31,12 +31,9 @@ Level5.prototype = {
 		player = new Player(game, 20, 550, 2, 1);
 		game.add.existing(player);
 
-		//this.oofers = game.add.audio('oof');
-		
-		//this.lazor = game.add.audio('lazor');
+
 	},
 	update:function(){
-		//game.physics.arcade.collide(player, this.platformGroup);
 		game.physics.arcade.collide(player, this.mapLayer);
 		game.debug.bodyInfo(player, 32, 32);
         game.debug.body(player);

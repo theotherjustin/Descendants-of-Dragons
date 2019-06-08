@@ -16,7 +16,7 @@ var Player = function(game, x, y, jumps, SpiritType){ //Player prefab
 	this.spawnY = y;
 	this.jumps = jumps;
 	this.SpiritType = SpiritType;
-	this.body.setSize(36, 44);
+	this.body.setSize(72, 80);
 	this.body.maxVelocity.x = 500;
 	this.body.maxVelocity.y = 1500;
 	this.body.drag.setTo(2000, 0);
@@ -114,7 +114,7 @@ Player.prototype.update = function() {
 		//Transformations
 		if(game.input.keyboard.justPressed(Phaser.Keyboard.Q) && this.SpiritType != 1){
 			this.animations.play('bun');
-			this.body.setSize(36, 44);
+			this.body.setSize(72, 80);
 			this.SpiritType = 1;
 		}
 
@@ -150,9 +150,9 @@ Player.prototype.update = function() {
 		var emitter = game.add.emitter(this.spawnX + 10, 0, 90);
 		emitter.makeParticles('bubble');
 		emitter.setYSpeed(350, 700);
-		emitter.setAlpha(0.25, 1);
+		emitter.setAlpha(0.25, 0.5);
 		emitter.start(false, 2000, 1, 50);
 		game.add.tween(emitter).to( { alpha: 0 }, 2000, Phaser.Easing.Linear.None, true, 0);
-		game.add.tween(this).to( { alpha: 1 }, 1000, Phaser.Easing.Linear.None, true, 0);
+		game.add.tween(this).to( { alpha: 1 }, 800, Phaser.Easing.Linear.None, true, 0);
 
 	}

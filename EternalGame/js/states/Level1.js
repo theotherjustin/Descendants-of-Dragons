@@ -25,29 +25,19 @@ Level1.prototype = {
 		sign = game.add.sprite(0,620, 'key', 'sign');
 
 		//add player
-		player = new Player(game, 20, 500, 2, 1);
+		player = new Player(game, 20, 450, 2, 1);
 		game.add.existing(player);
 
 	
-		//this.oofers = game.add.audio('oof');
-		
-		//this.lazor = game.add.audio('lazor');
 	},
 	update:function(){
-		//game.physics.arcade.collide(player, this.platformGroup);
 		game.physics.arcade.collide(player, this.mapLayer);
 		game.physics.arcade.collide(player.emitter, this.mapLayer);
 		//game.debug.bodyInfo(player, 32, 32);
         game.debug.body(player);
-		// if(game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)){
-			// this.main.stop();
-			// this.timer.stop();
-			// game.state.start('Play');
-		// }
-		//move to the next level
 		
 		if(player.x > 1280) {
-			game.state.start('Level3');
+			game.state.start('Level2');
 		}
 	}
 };

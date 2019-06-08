@@ -36,12 +36,9 @@ Level3.prototype = {
 		player = new Player(game, 20, 550, 2, 1);
 		game.add.existing(player);
 
-		//this.oofers = game.add.audio('oof');
 
-		//this.lazor = game.add.audio('lazor');
 	},
 	update:function(){
-		//game.physics.arcade.collide(player, this.platformGroup);
 		game.physics.arcade.collide(player, this.mapLayer);
 		game.physics.arcade.collide(block, this.mapLayer);
 		game.physics.arcade.collide(player, block, this.blockColl, null, this);
