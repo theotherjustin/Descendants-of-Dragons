@@ -1,6 +1,5 @@
 var Level5 = function(game){
 	//define variables
-	//var castle;
 	var player;
 };
 Level5.prototype = {
@@ -12,15 +11,15 @@ Level5.prototype = {
 		game.load.spritesheet('tilesheet5p', 'platforms.png', 16, 16);
 	},
 	create:function(){
-		//forest tilesprite
+		//background img
 		castle = game.add.tileSprite(0,-200,1920, 1080, 'Castle');
+		//setup tilemap
 		this.map = game.add.tilemap('level5');
 		this.map.addTilesetImage('floors', 'tilesheet5f');
 		this.map.addTilesetImage('platforms', 'tilesheet5p');
 		this.map.setCollisionByExclusion([]);
 		this.mapLayer = this.map.createLayer('Tile Layer 1');
 		
-
 		//prevent clipping
 		game.physics.arcade.TILE_BIAS = 32;
 
@@ -34,8 +33,11 @@ Level5.prototype = {
 
 	},
 	update:function(){
+		//collision
 		game.physics.arcade.collide(player, this.mapLayer);
+
+		//debug
 		game.debug.bodyInfo(player, 32, 32);
-        game.debug.body(player);
+		game.debug.body(player);
 	}
 };

@@ -1,41 +1,46 @@
 var Level1 = function(game){
 	//define variables
-	//var castle;
+
 	var player;
 };
 Level1.prototype = {
 	preload: function(){
+		//load level
 		game.load.path = 'assets/img/';
 		game.load.tilemap('Level1', 'Level1.json', null, Phaser.Tilemap.TILED_JSON);
 		game.load.spritesheet('tilesheet1', 'DeepForestTileset2.png', 16, 16);
 	},
 	create:function(){
-		//castle tilesprite
+		//background img
 		castle = game.add.tileSprite(0,-200,1920, 1080, 'Castle');
+		//setup tilemap
 		this.map = game.add.tilemap('Level1');
 		this.map.addTilesetImage('DeepForestTileset2', 'tilesheet1');
 		this.map.setCollisionByExclusion([]);
 		this.mapLayer = this.map.createLayer('Map Layout');
-		//this.decoLayer = this.map.createLayer('Foliage');
 		
-		//prevent clipping
+		//prevent clipping pls
 		game.physics.arcade.TILE_BIAS = 32;
 
-		//instruction
+		//instruction sign
 		sign = game.add.sprite(0,620, 'key', 'sign');
 
 		//add player
 		player = new Player(game, 50, 450, 2, 1);
 		game.add.existing(player);
 
-	
+		
 	},
 	update:function(){
+		//collide with the map
 		game.physics.arcade.collide(player, this.mapLayer);
 		game.physics.arcade.collide(player.emitter, this.mapLayer);
+
+		//debugging
 		//game.debug.bodyInfo(player, 32, 32);
-        game.debug.body(player);
+		game.debug.body(player);
 		
+		//move to the next level when you pass the right side of the screen
 		if(player.x > 1280) {
 			game.state.start('Level2');
 		}
