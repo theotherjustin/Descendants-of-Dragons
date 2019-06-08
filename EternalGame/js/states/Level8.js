@@ -62,6 +62,11 @@ Level8.prototype = {
 		game.debug.bodyInfo(player, 32, 32);
 		game.debug.body(player);
 
+		//move to the next level when you pass the right side of the screen
+		if(player.x > 1280) {
+			game.state.start('Level1');
+		}
+
 	},
 	blockColl:function(){
 		//make it so that only the ox moves the block
