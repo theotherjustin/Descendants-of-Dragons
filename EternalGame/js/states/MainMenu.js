@@ -1,12 +1,11 @@
-var bgMusic;
 var MainMenu = function(game) {
 	var playText;
 };
 
 MainMenu.prototype = {
     create: function(){
-		bgMusic = game.add.audio('OpeningLoop', 0.5, true);  //background music
-		bgMusic.play('', 0, 0.1, true);
+		game.bgMusic = game.add.audio('OpeningLoop', 0.5, true);  //background music
+		game.bgMusic.play('', 0, 2, true);
 		game.add.sprite(0, 0, 'mainBack'); //menu background
         //stylized title text
         var titleText = game.add.text(game.world.centerX, 50, 'Descendants of Dragons', { fontSize: '70px'});

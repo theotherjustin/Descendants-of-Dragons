@@ -1,18 +1,18 @@
-var Level1 = function(game){
+var MonkeyTutorial = function(game){
 	//define variables
 	var player;
 };
-Level1.prototype = {
+MonkeyTutorial.prototype = {
 	preload: function(){
 		//load level
 		game.load.path = 'assets/img/';
-		game.load.tilemap('Level1', 'Level1.json', null, Phaser.Tilemap.TILED_JSON);
+		game.load.tilemap('MonkeyTutorial', 'MonkeyTutorial.json', null, Phaser.Tilemap.TILED_JSON);
 	},
 	create:function(){
 		//background img
-		castle = game.add.tileSprite(0,0,1281, 721, 'bgRed');
+		castle = game.add.tileSprite(0,0,1281, 721, 'Castle');
 		//setup tilemap
-		this.map = game.add.tilemap('Level1');
+		this.map = game.add.tilemap('MonkeyTutorial');
 		this.map.addTilesetImage('platforms', 'tilesheetp');
 		this.map.addTilesetImage('floors', 'tilesheetf');
 		this.map.setCollisionByExclusion([]);
@@ -22,7 +22,7 @@ Level1.prototype = {
 		game.physics.arcade.TILE_BIAS = 32;
 
 		//instruction sign
-		sign = game.add.sprite(0,620, 'key', 'keyQ');
+		sign = game.add.sprite(0,620, 'key', 'sign');
 
 		//add player
 		player = new Player(game, 50, 450, 2, 0);
@@ -40,7 +40,7 @@ Level1.prototype = {
 
 		//move to the next level when you pass the right side of the screen
 		if(player.x > 1280) {
-			game.state.start('MonkeyTutorial');
+			game.state.start('Level2');
 		}
 	}
 };
