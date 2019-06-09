@@ -7,11 +7,12 @@ Load.prototype = {
 		game.load.image('Castle', 'assets/img/Castle.png');
 		game.load.image('mainBack', 'assets/img/MainMenu.png');
 		game.load.image('bubble', 'assets/img/bbl.png');
-		game.load.audio('run', 'assets/audio/mood.mp3');
-		game.load.audio('main', 'assets/audio/meow.mp3');
-        game.load.audio('jump', 'assets/audio/jump.mp3');
-        game.load.audio('oof', 'assets/audio/oof.mp3');
-        game.load.audio('lazor', 'assets/audio/lazor.mp3');
+		game.load.audio('Death', 'assets/audio/Death Sound.mp3');
+		game.load.audio('OpeningLoop', 'assets/audio/OpeningLoop.mp3');
+		game.load.audio('MidLoop', 'assets/audio/MidLoop.mp3');
+        game.load.audio('Jump', 'assets/audio/Jump.mp3');
+        game.load.audio('Respawn', 'assets/audio/Respawn Sound.mp3');
+        game.load.audio('Swap', 'assets/audio/Swap.mp3');
         game.load.spritesheet('tilesheetf', 'assets/img/floors.png', 16, 16);
 		game.load.spritesheet('tilesheetp', 'assets/img/platforms.png', 16, 16);
 	},
@@ -21,7 +22,9 @@ Load.prototype = {
     },
     update: function(){
     	//move to mainmenu
-        game.state.start('MainMenu');
+		if (game.cache.isSoundDecoded('OpeningLoop')) {
+			game.state.start('MainMenu');
+		}
     }
 
 };
