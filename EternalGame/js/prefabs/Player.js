@@ -14,6 +14,7 @@ var Player = function(game, x, y, jumps, SpiritType){ //Player prefab
 	this.animations.add("spirit",['spirit1', 'spirit2', 'spirit3', 'spirit4', 'spirit5'], 10, true);
 	this.animations.add("bun",['bun3'], 10, true);
 	this.animations.add("bunJump",['bun5'], 10, true);
+	this.animations.add("bunJump2",['bun1'], 10, true);
 	this.animations.add("bunRun",['bun3', 'bun4', 'bun5', 'bun6', 'bun1', 'bun2'], 10, true);
 	this.animations.add("mon",['mon7'], 10, true);
 	this.animations.add("monJump",['mon5'], 10, true);
@@ -110,7 +111,12 @@ Player.prototype.update = function() {
 
 	if(this.jumping == true){
 		if(this.SpiritType == 1){
-			this.animations.play('bunJump');
+			if(this.body.velocity.y < 0){
+				this.animations.play('bunJump');
+			}else{
+				this.animations.play('bunJump2');
+			}
+			
 		}
 		if(this.SpiritType == 2 && this.body.blocked.right == false && this.body.blocked.left == false){
 			this.animations.play('monJump');
