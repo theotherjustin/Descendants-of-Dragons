@@ -12,7 +12,7 @@ MainMenu.prototype = {
         var titleText = game.add.text(game.world.centerX, 50, 'Descendants of Dragons', { fontSize: '70px'});
         titleText.anchor.setTo(0.5);
         var grd = titleText.context.createLinearGradient(0, 0, 0, titleText.canvas.height);
-        grd.addColorStop(0, '#000000');   
+        grd.addColorStop(0, '#000000');
         grd.addColorStop(1, '#00ffff');
         titleText.fill = grd;
 
@@ -31,28 +31,29 @@ MainMenu.prototype = {
 
 
         //sign showing QWE controls
-        sign = game.add.sprite(game.world.centerX,370, 'key', 'sign');
-        sign.anchor.setTo(0.5);
+		sign1 = game.add.sprite(game.world.centerX-80,370, 'key', 'keyQ');
+		sign2 = game.add.sprite(game.world.centerX,370, 'key', 'keyW');
+		sign3 = game.add.sprite(game.world.centerX+80,370, 'key', 'keyE');
 
         //play text
         playText = game.add.text(game.world.centerX, 580, 'Press SPACEBAR to Start!', { fontSize: '40px', fill: '#ffffff' });
         playText.anchor.setTo(0.5);
 
         //timer used to make play text flash
-        this.timer = game.time.create(false);   
-        this.timer.loop(500, this.blink, this); 
+        this.timer = game.time.create(false);
+        this.timer.loop(500, this.blink, this);
         this.timer.start();
 
     },
 	blink: function(){ //flashing
 		playText.visible = !playText.visible;
 	},
-	update: function(){    
+	update: function(){
 		if(game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)){
 			//this.main.stop();
 			this.timer.stop();
 			game.state.start('tutorial');
 		}
 	}
-	
+
 };
