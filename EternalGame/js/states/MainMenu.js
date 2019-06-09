@@ -31,10 +31,15 @@ MainMenu.prototype = {
 
 
         //sign showing QWE controls
-		sign1 = game.add.sprite(game.world.centerX-80,370, 'key', 'keyQ');
-		sign2 = game.add.sprite(game.world.centerX,370, 'key', 'keyW');
-		sign3 = game.add.sprite(game.world.centerX+80,370, 'key', 'keyE');
-
+		sign1 = game.add.sprite(game.world.centerX-160, 370, 'key', 'keyQ');
+		sign2 = game.add.sprite(game.world.centerX, 370, 'key', 'keyW');
+		sign3 = game.add.sprite(game.world.centerX+160, 370, 'key', 'keyE');
+		sign1.anchor.setTo(0.5);
+		sign2.anchor.setTo(0.5);
+        sign3.anchor.setTo(0.5);
+		sign1.scale.setTo(1.5,1.5);
+		sign2.scale.setTo(1.5,1.5);
+		sign3.scale.setTo(1.5,1.5);
         //play text
         playText = game.add.text(game.world.centerX, 580, 'Press SPACEBAR to Start!', { fontSize: '40px', fill: '#ffffff' });
         playText.anchor.setTo(0.5);
