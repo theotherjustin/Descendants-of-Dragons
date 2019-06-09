@@ -16,6 +16,7 @@ window.onload = function() {
     // define states
     game.state.add('Load', Load);
     game.state.add('MainMenu', MainMenu);
+    game.state.add('tutorial', tutorial);
 	game.state.add('Level1', Level1);
 	game.state.add('Level2', Level2);
     game.state.add('Level3', Level3);
