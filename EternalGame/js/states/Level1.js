@@ -12,7 +12,7 @@ Level1.prototype = {
 	},
 	create:function(){
 		//background img
-		castle = game.add.tileSprite(0,0,1281, 721, 'Castle');
+		castle = game.add.tileSprite(0,0,1281, 721, 'bgRed');
 		//setup tilemap
 		this.map = game.add.tilemap('Level1');
 		this.map.addTilesetImage('DeepForestTileset2', 'tilesheet1');
@@ -23,7 +23,7 @@ Level1.prototype = {
 		game.physics.arcade.TILE_BIAS = 32;
 
 		//instruction sign
-		sign = game.add.sprite(0,620, 'key', 'sign');
+		sign = game.add.sprite(0,620, 'key', 'keyQ');
 
 		//add player
 		player = new Player(game, 50, 450, 2, 0);

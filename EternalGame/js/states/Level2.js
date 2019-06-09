@@ -10,7 +10,7 @@ Level2.prototype = {
 	},
 	create:function(){
 		//background img
-		castle = game.add.tileSprite(0,0,1281, 721, 'Castle');
+		castle = game.add.tileSprite(0,0,1281, 721, 'bgRed');
 		//setup tilemap
 		this.map = game.add.tilemap('level2');
 		this.map.addTilesetImage('floors', 'tilesheetf');
@@ -20,7 +20,9 @@ Level2.prototype = {
 
 		//create polution hazard
 		this.pollutionGroup = game.add.group();
-		var purp = game.add.sprite(710, 370, 'key', 'purp');
+		var purp = game.add.sprite(710, 370, 'key', 'poll1');
+		purp.animations.add("poll",['poll1', 'poll2'], 10, true);
+		purp.animations.play('poll');
 		game.physics.enable(purp, Phaser.Physics.ARCADE);
 		//makes it stay there
 		purp.immovable = true;
@@ -31,7 +33,7 @@ Level2.prototype = {
 		game.physics.arcade.TILE_BIAS = 32;
 
 		//instruction sign
-		sign = game.add.sprite(0,620, 'key', 'sign');
+		sign = game.add.sprite(0,620, 'key', 'keyQ');
 
 		//add the player
 		player = new Player(game, 20, 550, 2, 0);

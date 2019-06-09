@@ -10,7 +10,7 @@ Level3.prototype = {
 	},
 	create:function(){
 		//background
-		castle = game.add.tileSprite(0,0,1281, 721, 'Castle');
+		castle = game.add.tileSprite(0,0,1281, 721, 'bgPurple');
 		//tilemap setup
 		this.map = game.add.tilemap('level3');
 		this.map.addTilesetImage('floors', 'tilesheetf');
@@ -30,7 +30,8 @@ Level3.prototype = {
 		block.body.immovable = true;
 
 		//instruction sign
-		sign = game.add.sprite(0,620, 'key', 'sign');
+		sign1 = game.add.sprite(0,620, 'key', 'keyQ');
+		sign2 = game.add.sprite(80,620, 'key', 'keyE');
 
 		//add the player
 		player = new Player(game, 20, 550, 2, 0);
