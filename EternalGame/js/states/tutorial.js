@@ -65,7 +65,7 @@ tutorial.prototype = {
 		//player.animations.stop(null, true);
 		flag = true;
 	}
-	if(game.input.keyboard.justPressed(Phaser.Keyboard.Q) && flag == true){
+	if(game.input.keyboard.justPressed(Phaser.Keyboard.Q) && flag == true && flag2 == false){
 		player.body.velocity.x = 0;;
 		qText.visible = false;
 		upText = game.add.text(player.x, player.y - 80, 'UP', { fontSize: '40px', fill: '#ffffff' });
