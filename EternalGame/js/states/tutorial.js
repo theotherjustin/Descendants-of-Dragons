@@ -40,7 +40,7 @@ tutorial.prototype = {
 		sign = game.add.sprite(0,620, 'key', 'sign');
 
 		//add the player
-		player = new Player(game, 150, 250, 2, 1);
+		player = new Player(game, 150, 250, 2, 0);
 		game.add.existing(player);
 
 	},

@@ -34,7 +34,7 @@ Level2.prototype = {
 		sign = game.add.sprite(0,620, 'key', 'sign');
 
 		//add the player
-		player = new Player(game, 20, 550, 2, 1);
+		player = new Player(game, 20, 550, 2, 0);
 		game.add.existing(player);
 
 	},

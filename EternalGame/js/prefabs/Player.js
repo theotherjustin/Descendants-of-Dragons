@@ -9,6 +9,7 @@ var Player = function(game, x, y, jumps, SpiritType){ //Player prefab
 	this.body.maxVelocity.y = 1500;
 	this.body.drag.setTo(2000, 0);
 	//animations
+	this.animations.add("spirit",['spirit1', 'spirit2', 'spirit3', 'spirit4', 'spirit5'], 10, true);
 	this.animations.add("bun",['bun3'], 10, true);
 	this.animations.add("bunRun",['bun3', 'bun4', 'bun5', 'bun6', 'bun1', 'bun2'], 10, true);
 	this.animations.add("mon",['mon7'], 10, true);
@@ -16,7 +17,7 @@ var Player = function(game, x, y, jumps, SpiritType){ //Player prefab
 	this.animations.add("monClimb",['mon2'], 10, true);
 	this.animations.add("ox",['ox2'], 10, true);
 	this.animations.add("oxRun",['ox2', 'ox3', 'ox4', 'ox5', 'ox6', 'ox1'], 10, true);
-	this.animations.play('bun');
+	this.animations.play('spirit');
 	this.anchor.set(0.5, 0.5);
 	//variables
 	this.spawnX = x;
@@ -27,7 +28,7 @@ var Player = function(game, x, y, jumps, SpiritType){ //Player prefab
 	this.SpiritType = SpiritType;
 	//reset to bunny's hitbox size
 	///this.body.setSize(90, 80, 10, 0);
-	this.body.setCircle(40);
+	this.body.setCircle(20, 0, 60);
 	//sounds
 	this.jump = game.add.audio('jump');
 
@@ -154,7 +155,7 @@ Player.prototype.update = function() {
 	if(game.input.keyboard.justPressed(Phaser.Keyboard.Q) && this.SpiritType != 1){
 		this.animations.play('bun');
 		this.body.syncBounds = false;
-		this.body.setCircle(40);
+		this.body.setCircle(40, 0 , 0);
 		this.SpiritType = 1;
 	}
 	if(game.input.keyboard.justPressed(Phaser.Keyboard.W) && this.SpiritType != 2){
