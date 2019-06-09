@@ -10,7 +10,7 @@ MonkeyTutorial.prototype = {
 	},
 	create:function(){
 		//background img
-		castle = game.add.tileSprite(0,0,1281, 721, 'Castle');
+		castle = game.add.tileSprite(0,0,1281, 721, 'bgRed');
 		//setup tilemap
 		this.map = game.add.tilemap('MonkeyTutorial');
 		this.map.addTilesetImage('platforms', 'tilesheetp');
@@ -22,7 +22,10 @@ MonkeyTutorial.prototype = {
 		game.physics.arcade.TILE_BIAS = 32;
 
 		//instruction sign
-		sign = game.add.sprite(0,620, 'key', 'sign');
+		sign1 = game.add.sprite(0,620, 'key', 'keyQ');
+		sign2 = game.add.sprite(80,620, 'key', 'keyW');
+		sign3 = game.add.sprite(160,620, 'key', 'keyE');
+
 
 		//add player
 		player = new Player(game, 50, 450, 2, 0);
