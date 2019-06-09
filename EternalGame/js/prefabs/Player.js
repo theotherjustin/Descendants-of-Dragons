@@ -35,12 +35,25 @@ var Player = function(game, x, y, jumps, SpiritType){ //Player prefab
 	this.swap = game.add.audio('Swap');
 	this.death = game.add.audio('Death');
 	respawn = game.add.audio('Respawn');
+	//checks for state
+	this.gameState = game.state.getCurrentState().key﻿;
+	
+	//plays another loop when first encountering pollution
+	if(this.gameState == "Level2") {
+		game.bgMusic.volume = game.bgMusic.volume * 0.33;
+		game.bgMusic.stop();
+		game.bgMusic = game.add.audio('MidLoop', 1, true);  //background music
+		game.bgMusic.play('', 0, 1, true);
+		game.bgMusic = game.bgMusic.volume * 2;
+	}
 
 
 }
 //tell phaser which constructor to use
 Player.prototype = Object.create(Phaser.Sprite.prototype);
 Player.prototype.constructor = Player;
+
+
 
 Player.prototype.update = function() {
 	//Animations
