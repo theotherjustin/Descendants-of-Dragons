@@ -10,14 +10,14 @@ Level5.prototype = {
 	},
 	create:function(){
 		//background img
-		castle = game.add.tileSprite(0,-200,1920, 1080, 'Castle');
+		castle = game.add.tileSprite(0,0,1281, 721, 'Castle');
 		//setup tilemap
 		this.map = game.add.tilemap('level5');
 		this.map.addTilesetImage('floors', 'tilesheetf');
 		this.map.addTilesetImage('platforms', 'tilesheetp');
 		this.map.setCollisionByExclusion([]);
 		this.mapLayer = this.map.createLayer('Tile Layer 1');
-		
+
 		//prevent clipping
 		game.physics.arcade.TILE_BIAS = 32;
 

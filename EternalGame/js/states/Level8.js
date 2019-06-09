@@ -10,7 +10,7 @@ Level8.prototype = {
 	},
 	create:function(){
 		//background
-		castle = game.add.tileSprite(0,-200,1920, 1080, 'Castle');
+		castle = game.add.tileSprite(0,0,1281, 721, 'Castle');
 		//tilemap setup
 		this.map = game.add.tilemap('level8');
 		this.map.addTilesetImage('floors', 'tilesheetf');

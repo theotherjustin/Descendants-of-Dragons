@@ -12,13 +12,13 @@ Level1.prototype = {
 	},
 	create:function(){
 		//background img
-		castle = game.add.tileSprite(0,-200,1920, 1080, 'Castle');
+		castle = game.add.tileSprite(0,0,1281, 721, 'Castle');
 		//setup tilemap
 		this.map = game.add.tilemap('Level1');
 		this.map.addTilesetImage('DeepForestTileset2', 'tilesheet1');
 		this.map.setCollisionByExclusion([]);
 		this.mapLayer = this.map.createLayer('Map Layout');
-		
+
 		//prevent clipping pls
 		game.physics.arcade.TILE_BIAS = 32;
 
@@ -38,7 +38,7 @@ Level1.prototype = {
 		//debugging
 		//game.debug.bodyInfo(player, 32, 32);
 		game.debug.body(player);
-		
+
 		//move to the next level when you pass the right side of the screen
 		if(player.x > 1280) {
 			game.state.start('Level2');
