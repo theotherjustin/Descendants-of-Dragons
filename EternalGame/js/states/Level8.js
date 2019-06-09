@@ -25,7 +25,7 @@ Level8.prototype = {
 		block = game.add.sprite(460,120, 'key', 'block');
 		game.physics.enable(block,Phaser.Physics.ARCADE);
 		block.body.collideWorldBounds = true;
-		block.scale.setTo(3, 0.75);
+		block.scale.setTo(2, 0.75);
 		block.body.gravity.y = 2000;
 		block.body.drag.setTo(10, 0);
 		block.body.immovable = true;
