@@ -148,13 +148,13 @@ Player.prototype.update = function() {
 		this.body.velocity.y = -650;
 		this.body.velocity.x = -600;
 		this.wallcount = 0;
-		this.jump.play('',0, 2.5, false);
+		this.jump.play('',0, 6, false);
 	}
 	if(game.input.keyboard.isDown(Phaser.Keyboard.RIGHT) && !player.body.blocked.down && player.body.blocked.left && this.SpiritType == 2){
 		this.body.velocity.y = -650;
 		this.body.velocity.x = 600;
 		this.wallcount = 0;
-		this.jump.play('',0, 2.5, false);
+		this.jump.play('',0, 6, false);
 	}
 
 	//Transformations
@@ -183,7 +183,7 @@ Player.prototype.update = function() {
 
 		//Falling down
 		if(this.y > 800){
-			this.death.play('', 0, 1.5, false);
+			this.death.play('', 0, 0.5, false);
 			var emitter = game.add.emitter(this.x,this.y -90, 50);
 			emitter.makeParticles('bubble');
 			emitter.setYSpeed(-650, -900);
