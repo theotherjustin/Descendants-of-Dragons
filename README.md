@@ -1,5 +1,8 @@
 # Descendants of Dragons
 ARTG/CMPM 120 Final Game
+Justin Lee - Lead Programmer and Level Designer
+Hanette Le - Lead Artist
+Victor Wang - Sound Design and Level Design
 
 MECHANICS
 The core mechanic of the game is transforming between different animal spirits to use their different abilities. The bunny and the monkey allow for double jumping and wall jumping respectively and act as your main platforming tools. Many complex levels utilize precice switching between these two to navigate the levels. The ox does not offer the same movement options, but allows you to push blocks which contribute to the puzzling aspect of the game along with allowing the other two spirits to reach new height or move past obstacles.
