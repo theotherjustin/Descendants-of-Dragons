@@ -2,6 +2,7 @@ var tutorial = function(game){
 	//define variables
 	var player;
 	var flag;
+	var flag2;
 	var qText;
 	var upText;
 };
@@ -24,6 +25,7 @@ tutorial.prototype = {
 		game.physics.arcade.TILE_BIAS = 32;
 
 		flag = false;
+		flag2 = false;
 		//add the block
 		/*
 		block = game.add.sprite(150,400, 'key', 'block');
@@ -63,13 +65,15 @@ tutorial.prototype = {
 		//player.animations.stop(null, true);
 		flag = true;
 	}
-	if(game.input.keyboard.justPressed(Phaser.Keyboard.Q)){
+	if(game.input.keyboard.justPressed(Phaser.Keyboard.Q) && flag == true){
+		player.body.velocity.x = 0;;
 		qText.visible = false;
 		upText = game.add.text(player.x, player.y - 80, 'UP', { fontSize: '40px', fill: '#ffffff' });
         upText.anchor.setTo(0.5);
+        flag2 = true;
 	}
 
-	if(game.input.keyboard.justPressed(Phaser.Keyboard.UP) && player.SpiritType == 1 && flag == true){
+	if(game.input.keyboard.justPressed(Phaser.Keyboard.UP) && player.SpiritType == 1 && flag == true && flag2 == true){
 		upText.visible = false;
 		player.body.moves = true;
 		player.animations.play('bunRun');

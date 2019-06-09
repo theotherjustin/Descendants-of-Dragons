@@ -152,7 +152,7 @@ Player.prototype.update = function() {
 		this.SpiritType = 1;
 	}
 	if(game.input.keyboard.justPressed(Phaser.Keyboard.W) && this.SpiritType != 2){
-		console.log('lost');
+		//console.log('lost');
 		this.animations.play('mon');
 		//this.body.setSize(90, 50, 0, 0);
 		this.SpiritType = 2;
