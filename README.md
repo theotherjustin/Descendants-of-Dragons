@@ -1,5 +1,6 @@
 # Descendants of Dragons
 ARTG/CMPM 120 Final Game
+
 Justin Lee - Lead Programmer and Level Designer
 Hanette Le - Lead Artist
 Victor Wang - Sound Design and Level Design
