@@ -10,7 +10,7 @@ Level2.prototype = {
 	},
 	create:function(){
 		//background img
-		castle = game.add.tileSprite(0,-200,1920, 1080, 'Castle');
+		castle = game.add.tileSprite(0,0,1281, 721, 'Castle');
 		//setup tilemap
 		this.map = game.add.tilemap('level2');
 		this.map.addTilesetImage('floors', 'tilesheetf');
