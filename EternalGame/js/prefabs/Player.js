@@ -183,7 +183,7 @@ Player.prototype.update = function() {
 
 		//Falling down
 		if(this.y > 800){
-			this.death.play('', 0, 1.5, false);
+			this.death.play('', 0, 0.5, false);
 			var emitter = game.add.emitter(this.x,this.y -90, 50);
 			emitter.makeParticles('bubble');
 			emitter.setYSpeed(-650, -900);
