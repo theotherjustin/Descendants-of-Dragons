@@ -35,12 +35,25 @@ var Player = function(game, x, y, jumps, SpiritType){ //Player prefab
 	this.swap = game.add.audio('Swap');
 	this.death = game.add.audio('Death');
 	respawn = game.add.audio('Respawn');
+	//checks for state
+	this.gameState = game.state.getCurrentState().key﻿;
+	
+	//plays another loop when first encountering pollution
+	if(this.gameState == "Level2") {
+		game.bgMusic.volume = game.bgMusic.volume * 0.33;
+		game.bgMusic.stop();
+		game.bgMusic = game.add.audio('MidLoop', 1, true);  //background music
+		game.bgMusic.play('', 0, 1, true);
+		game.bgMusic = game.bgMusic.volume * 2;
+	}
 
 
 }
 //tell phaser which constructor to use
 Player.prototype = Object.create(Phaser.Sprite.prototype);
 Player.prototype.constructor = Player;
+
+
 
 Player.prototype.update = function() {
 	//Animations
@@ -148,13 +161,13 @@ Player.prototype.update = function() {
 		this.body.velocity.y = -650;
 		this.body.velocity.x = -600;
 		this.wallcount = 0;
-		this.jump.play('',0, 2.5, false);
+		this.jump.play('',0, 6, false);
 	}
 	if(game.input.keyboard.isDown(Phaser.Keyboard.RIGHT) && !player.body.blocked.down && player.body.blocked.left && this.SpiritType == 2){
 		this.body.velocity.y = -650;
 		this.body.velocity.x = 600;
 		this.wallcount = 0;
-		this.jump.play('',0, 2.5, false);
+		this.jump.play('',0, 6, false);
 	}
 
 	//Transformations

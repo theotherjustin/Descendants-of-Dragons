@@ -14,7 +14,7 @@ tutorial.prototype = {
 	},
 	create:function(){
 		//background
-		castle = game.add.tileSprite(0,0,1281, 721, 'Castle');
+		castle = game.add.tileSprite(0,0,1281, 721, 'bgRed');
 		//tilemap setup
 		this.map = game.add.tilemap('tut');
 		this.map.addTilesetImage('floors', 'tilesheetf');
@@ -37,7 +37,7 @@ tutorial.prototype = {
 		block.body.immovable = true;
 		*/
 		//instruction sign
-		sign = game.add.sprite(0,620, 'key', 'sign');
+		sign = game.add.sprite(0,620, 'key', 'keyQ');
 
 		//add the player
 		player = new Player(game, 150, 250, 2, 0);
