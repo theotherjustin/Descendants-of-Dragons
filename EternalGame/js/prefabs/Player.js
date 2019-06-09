@@ -248,8 +248,8 @@ Player.prototype.respawn = function(){
 	emitter.setYSpeed(350, 700);
 	emitter.setAlpha(0.25, 1);
 	emitter.start(false, 2000, 1, 50);
-		//game.add.tween(emitter).to( { alpha: 0 }, 2000, Phaser.Easing.Linear.None, true, 0);
-		game.add.tween(this).to( { alpha: 1 }, 800, Phaser.Easing.Linear.None, true, 0);
-		this.respawning = false;
+	//game.add.tween(emitter).to( { alpha: 0 }, 2000, Phaser.Easing.Linear.None, true, 0);
+	game.add.tween(this).to( { alpha: 1 }, 800, Phaser.Easing.Linear.None, true, 0);
+	this.respawning = false;
 
-	}
+}
