@@ -100,7 +100,7 @@ Player.prototype.update = function() {
 	if(game.input.keyboard.justPressed(Phaser.Keyboard.UP) && ( (this.jumps > 0 && this.SpiritType == 1) || this.body.blocked.down || this.body.touching.down) ){
 		this.body.velocity.y = -900;
 		this.jumps--;
-		this.jump.play('',0, 2.5, false);
+		this.jump.play('',0, 6, false);
 	}
 
 	//left right movement
@@ -163,7 +163,7 @@ Player.prototype.update = function() {
 		this.body.syncBounds = false;
 		this.body.setCircle(40, 0 , 0);
 		this.SpiritType = 1;
-		this.swap.play('',0, 0.5, false);
+		this.swap.play('',0, 1.5, false);
 	}
 	if(game.input.keyboard.justPressed(Phaser.Keyboard.W) && this.SpiritType != 2){
 		//console.log('lost');
@@ -171,19 +171,19 @@ Player.prototype.update = function() {
 		this.body.setSize(90, 80, 0, 0);
 		this.body.syncBounds = true;
 		this.SpiritType = 2;
-		this.swap.play('',0, 0.5, false);
+		this.swap.play('',0, 1.5, false);
 	}
 	if(game.input.keyboard.justPressed(Phaser.Keyboard.E) && this.SpiritType != 3){
 		this.animations.play('ox');
 		this.body.syncBounds = false;
 		this.body.setSize(120, 80, 10, 0);
 		this.SpiritType = 3;
-		this.swap.play('',0, 0.5, false);
+		this.swap.play('',0, 1.5, false);
 	}
 
 		//Falling down
 		if(this.y > 800){
-			this.death.play('', 0, 0.1, false);
+			this.death.play('', 0, 1.5, false);
 			var emitter = game.add.emitter(this.x,this.y -90, 50);
 			emitter.makeParticles('bubble');
 			emitter.setYSpeed(-650, -900);
@@ -204,7 +204,7 @@ Player.prototype.update = function() {
 
 //fade in + particles
 Player.prototype.respawn = function(){
-	respawn.play('', 0, 0.1, false);
+	respawn.play('', 0, 1.5, false);
 	var emitter = game.add.emitter(this.spawnX + 10, -20, 90);
 	emitter.makeParticles('bubble');
 	emitter.setYSpeed(350, 700);
