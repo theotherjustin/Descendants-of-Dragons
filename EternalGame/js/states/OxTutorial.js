@@ -7,7 +7,7 @@ OxTutorial.prototype = {
 		//console.log('OxTutorial');
 		//load level
 		game.load.path = 'assets/img/';
-		game.load.tilemap('level3', 'level3Final.json', null, Phaser.Tilemap.TILED_JSON);
+		game.load.tilemap('level3', 'Level3Final.json', null, Phaser.Tilemap.TILED_JSON);
 	},
 	create:function(){
 		//background
