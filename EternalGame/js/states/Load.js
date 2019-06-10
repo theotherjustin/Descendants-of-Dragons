@@ -11,6 +11,7 @@ Load.prototype = {
 		game.load.audio('Death', 'assets/audio/Death Sound.mp3');
 		game.load.audio('OpeningLoop', 'assets/audio/OpeningLoop.mp3');
 		game.load.audio('MidLoop', 'assets/audio/MidLoop.mp3');
+		game.load.audio('FinalLoop', 'assets/audio/FinalLoop.mp3');
         game.load.audio('Jump', 'assets/audio/Jump.mp3');
         game.load.audio('Respawn', 'assets/audio/Respawn Sound.mp3');
         game.load.audio('Swap', 'assets/audio/Swap.mp3');
