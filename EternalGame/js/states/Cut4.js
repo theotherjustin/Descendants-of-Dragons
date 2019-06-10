@@ -11,6 +11,6 @@ Cut4.prototype = {
 
 	},
 	update: function(){
-		game.time.events.add(27000, function () { game.state.start('MainMenu')});
+		game.time.events.add(27000, function () { game.state.start('MainMenu'); game.bgMusic.stop();});
     }
 };
