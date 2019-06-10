@@ -20,6 +20,7 @@ window.onload = function() {
     game.state.add('BunTutorial', BunTutorial);
     game.state.add('MonkeyTutorial', MonkeyTutorial);
 	game.state.add('Level1', Level1);
+	game.state.add('Puzzle1', Puzzle1);
 	game.state.add('Level2', Level2);
     game.state.add('OxTutorial', OxTutorial);
     game.state.add('Level5', Level5);
