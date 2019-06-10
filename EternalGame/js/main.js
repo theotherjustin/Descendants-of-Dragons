@@ -12,7 +12,7 @@ var game;
 // wait for browser to load 
 window.onload = function() {  
     // define game
-    game = new Phaser.Game(1280,720, Phaser.AUTO, '');
+    game = new Phaser.Game(1280,720, Phaser.AUTO, 'myGame');
     // define states
     game.state.add('Load', Load);
     game.state.add('MainMenu', MainMenu);

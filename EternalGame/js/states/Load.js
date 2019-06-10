@@ -19,9 +19,12 @@ Load.prototype = {
 	},
 	create: function(){
 		//display loading..
-        var sText = game.add.text(400, 200, 'Loading...', { fontSize: '32px', fill: '#FFFF' });
+        var sText = game.add.text(400, 200, 'Loading...', { font: 'Dancing Script', fontSize: '32px', fill: '#FFFF' });
     },
     update: function(){
+    	//game.scale.pageAlignHorizontally = true;
+		//game.scale.pageAlignVertically = true;
+		//game.scale.refresh();
     	//move to mainmenu
 		if (game.cache.isSoundDecoded('OpeningLoop')) {
 			game.state.start('MainMenu');

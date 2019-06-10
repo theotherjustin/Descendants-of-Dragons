@@ -1,7 +1,14 @@
 body {
 	font-family: Helvetica;
+	font-size: 16px;
+	color: #333;
+	width: 1280px;
+	margin: 0 auto;
+	background-color: #333;
+
 }
 
-canvas {
-	border: 1px solid black;
+#myGame {
+	border: 5px solid #fff;
+	width: 1280px;
 }
