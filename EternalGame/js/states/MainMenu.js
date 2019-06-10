@@ -4,6 +4,7 @@ var MainMenu = function(game) {
 
 MainMenu.prototype = {
     create: function(){
+		game.bgMusic.stop();
 		game.bgMusic = game.add.audio('OpeningLoop', 0.5, true);  //background music
 		game.bgMusic.play('', 0, 2, true);
 		game.add.sprite(0, 0, 'mainBack'); //menu background
@@ -58,7 +59,7 @@ MainMenu.prototype = {
 		if(game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)){
 			//this.main.stop();
 			this.timer.stop();
-			game.state.start('Puzzle1');
+			game.state.start('Cut1');
 		}
 	}
 
