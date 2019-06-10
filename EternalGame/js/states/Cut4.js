@@ -1,8 +1,8 @@
-var Cut3 = function(game) {
+var Cut4 = function(game) {
 	var video;
 };
 
-Cut2.prototype = {
+Cut4.prototype = {
     create: function(){
 		console.log('cut3');
 		video = game.add.video('cut3');
