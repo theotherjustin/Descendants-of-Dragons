@@ -7,6 +7,7 @@ Level2.prototype = {
 		//load level
 		game.load.path = 'assets/img/';
 		game.load.tilemap('level2', 'level2.json', null, Phaser.Tilemap.TILED_JSON);
+		//console.log('lvl2');
 	},
 	create:function(){
 		//background img
@@ -50,12 +51,12 @@ Level2.prototype = {
 			game.physics.arcade.collide(player, this.pollutionGroup, this.pColl, null, this);
 		}
 		//debug
-		game.debug.bodyInfo(player, 32, 32);
-		game.debug.body(player);
+		//game.debug.bodyInfo(player, 32, 32);
+		//game.debug.body(player);
 
         //to next level
         if(player.x > 1280) {
-        	game.state.start('MonkeyTutorial');
+        	game.state.start('Cut2');
         }
     },
     pColl:function(){

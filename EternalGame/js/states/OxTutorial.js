@@ -4,6 +4,7 @@ var OxTutorial = function(game){
 };
 OxTutorial.prototype = {
 	preload: function(){
+		//console.log('OxTutorial');
 		//load level
 		game.load.path = 'assets/img/';
 		game.load.tilemap('level3', 'level3Final.json', null, Phaser.Tilemap.TILED_JSON);
@@ -51,8 +52,8 @@ OxTutorial.prototype = {
 		game.physics.arcade.collide(player, block, this.blockColl, null, this);
 
 		//debug
-		game.debug.bodyInfo(player, 32, 32);
-		game.debug.body(player);
+		//game.debug.bodyInfo(player, 32, 32);
+		//game.debug.body(player);
 
 	//next lvl
 	if(player.x > 1280) {

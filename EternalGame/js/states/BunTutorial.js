@@ -11,6 +11,7 @@ var BunTutorial = function(game){
 };
 BunTutorial.prototype = {
 	preload: function(){
+		//console.log('BunTutorial');
 		//load level
 		game.load.path = 'assets/img/';
 		game.load.tilemap('tut', 'tutorial.json', null, Phaser.Tilemap.TILED_JSON);
@@ -63,8 +64,8 @@ BunTutorial.prototype = {
 		}
 
 		//debug
-		game.debug.bodyInfo(npcB, 32, 32);
-		game.debug.body(player);
+		//game.debug.bodyInfo(npcB, 32, 32);
+		//game.debug.body(player);
 
 		//next lvl
 		if(player.x > 1280) {

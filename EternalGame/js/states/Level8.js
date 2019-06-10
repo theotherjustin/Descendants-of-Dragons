@@ -4,6 +4,7 @@ var Level8 = function(game){
 };
 Level8.prototype = {
 	preload: function(){
+		//console.log('lvl8');
 		//load level
 		game.load.path = 'assets/img/';
 		game.load.tilemap('level8', 'level8.json', null, Phaser.Tilemap.TILED_JSON);
@@ -66,12 +67,12 @@ Level8.prototype = {
 		}
 
 		//debug
-		game.debug.bodyInfo(player, 32, 32);
-		game.debug.body(player);
+		//game.debug.bodyInfo(player, 32, 32);
+		//game.debug.body(player);
 
 		//move to the next level when you pass the right side of the screen
 		if(player.x > 1280) {
-			game.state.start('Level1');
+			game.state.start('Cut4');
 		}
 
 	},

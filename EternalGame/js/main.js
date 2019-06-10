@@ -17,6 +17,9 @@ window.onload = function() {
     game.state.add('Load', Load);
     game.state.add('MainMenu', MainMenu);
     game.state.add('Cut1', Cut1);
+    game.state.add('Cut2', Cut2);
+    game.state.add('Cut3', Cut3);
+    game.state.add('Cut4', Cut4);
     game.state.add('BunTutorial', BunTutorial);
     game.state.add('MonkeyTutorial', MonkeyTutorial);
 	game.state.add('Level1', Level1);
@@ -26,6 +29,5 @@ window.onload = function() {
     game.state.add('Level5', Level5);
     game.state.add('Level7', Level7);
     game.state.add('Level8', Level8);
-    game.state.add('GameOver', GameOver);
     game.state.start('Load');
 }
