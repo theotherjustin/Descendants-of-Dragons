@@ -18,6 +18,7 @@ Load.prototype = {
         game.load.spritesheet('tilesheetf', 'assets/img/floors.png', 16, 16);
 		game.load.spritesheet('tilesheetp', 'assets/img/platforms.png', 16, 16);
 		game.load.video('cut3', 'assets/video/cut3.mp4');
+		game.load.video('cut2', 'assets/video/cut2.mp4');
 		game.load.video('cut1', 'assets/video/cut1.mp4');
 	},
 	create: function(){
