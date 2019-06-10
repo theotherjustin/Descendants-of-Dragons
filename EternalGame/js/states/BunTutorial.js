@@ -11,6 +11,7 @@ var BunTutorial = function(game){
 };
 BunTutorial.prototype = {
 	preload: function(){
+		console.log('BunTutorial');
 		//load level
 		game.load.path = 'assets/img/';
 		game.load.tilemap('tut', 'tutorial.json', null, Phaser.Tilemap.TILED_JSON);
