@@ -30,7 +30,7 @@ MonkeyTutorial.prototype = {
 
 
 		//add player
-		player = new Player(game, 50, 450, 2, 0);
+		player = new Player(game, 50, 50, 2, 0);
 		game.add.existing(player);
 		player.bunny = true;
 		player.monkey = true;
