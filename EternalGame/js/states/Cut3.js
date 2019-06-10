@@ -2,8 +2,9 @@ var Cut3 = function(game) {
 	var video;
 };
 
-Cut1.prototype = {
+Cut3.prototype = {
     create: function(){
+		console.log('cut3');
 		video = game.add.video('cut3');
 		video.addToWorld();
 		video.play(false);
