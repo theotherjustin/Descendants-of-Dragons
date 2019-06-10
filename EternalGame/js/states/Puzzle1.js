@@ -22,19 +22,19 @@ Puzzle1.prototype = {
 		game.physics.arcade.TILE_BIAS = 32;
 
 		//add the first block
-		block = game.add.sprite(50, 0, 'key', 'block');
+		block = game.add.sprite(90, 0, 'key', 'block');
 		game.physics.enable(block,Phaser.Physics.ARCADE);
 		block.body.collideWorldBounds = true;
-		block.scale.setTo(1.75, 1.75);
+		block.scale.setTo(1.3, 1.2);
 		block.body.gravity.y = 1000;
 		block.body.drag.setTo(1000, 0);
 		block.body.immovable = true;
 		
 		//block #2
-		block2 = game.add.sprite(1050, 0, 'key', 'block');
+		block2 = game.add.sprite(1020, 0, 'key', 'block');
 		game.physics.enable(block2,Phaser.Physics.ARCADE);
 		block2.body.collideWorldBounds = true;
-		block2.scale.setTo(1.75, 1);
+		block2.scale.setTo(1.3, 1);
 		block2.body.gravity.y = 1000;
 		block2.body.drag.setTo(1000, 0);
 		block2.body.immovable = true;
