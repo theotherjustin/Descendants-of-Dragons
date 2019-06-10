@@ -33,7 +33,6 @@ Level1.prototype = {
 	update:function(){
 		//collide with the map
 		game.physics.arcade.collide(player, this.mapLayer);
-		game.physics.arcade.collide(npcB, this.mapLayer);
 		game.physics.arcade.collide(player.emitter, this.mapLayer);
 
 		//debugging
