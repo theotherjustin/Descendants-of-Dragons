@@ -10,7 +10,7 @@ Puzzle1.prototype = {
 	},
 	create:function(){
 		//background
-		castle = game.add.tileSprite(0,0,1281, 721, 'Castle');
+		castle = game.add.tileSprite(0,0,1281, 721, 'bgRed');
 		//tilemap setup
 		this.map = game.add.tilemap('Puzzle1');
 		this.map.addTilesetImage('floors', 'tilesheetf');
@@ -52,7 +52,10 @@ Puzzle1.prototype = {
 		this.pollutionGroup.add(purp);
 
 		//instruction sign
-		sign = game.add.sprite(0,620, 'key', 'sign');
+		sign1 = game.add.sprite(0,620, 'key', 'keyQ');
+		sign2 = game.add.sprite(80,620, 'key', 'keyW');
+		sign3 = game.add.sprite(160,620, 'key', 'keyE');
+
 
 		//add the player
 		player = new Player(game, 20, 450, 2, 0);
@@ -71,10 +74,6 @@ Puzzle1.prototype = {
 			//collide with the pollution
 			game.physics.arcade.collide(player, this.pollutionGroup, this.pColl, null, this);
 		}
-
-		//debug
-		game.debug.bodyInfo(player, 32, 32);
-		game.debug.body(player);
 
 		//next lvl
 		if(player.x > 1280) {
