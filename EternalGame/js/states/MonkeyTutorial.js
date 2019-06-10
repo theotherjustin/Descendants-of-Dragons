@@ -4,7 +4,7 @@ var MonkeyTutorial = function(game){
 };
 MonkeyTutorial.prototype = {
 	preload: function(){
-		console.log('MonkeyTutorial');
+		//console.log('MonkeyTutorial');
 		//load level
 		game.load.path = 'assets/img/';
 		game.load.tilemap('MonkeyTutorial', 'MonkeyTutorial.json', null, Phaser.Tilemap.TILED_JSON);
@@ -44,7 +44,7 @@ MonkeyTutorial.prototype = {
 
 		//debugging
 		//game.debug.bodyInfo(player, 32, 32);
-		game.debug.body(player);
+		//game.debug.body(player);
 
 		//move to the next level when you pass the right side of the screen
 		if(player.x > 1280) {

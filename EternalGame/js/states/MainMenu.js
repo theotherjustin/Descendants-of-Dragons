@@ -16,7 +16,7 @@ MainMenu.prototype = {
         titleText.fill = grd;
 
         //basic instuctions
-        var insText = game.add.text(game.world.centerX, 180, 'Arrow keys to move!', { fontSize: '22px', fill: '#ffffff' });
+        var insText = game.add.text(game.world.centerX, 180, 'Arrow keys to move! UP to jump!', { fontSize: '22px', fill: '#ffffff' });
         //add stroke to make text more readable
         insText.stroke = '#000000';
         insText.strokeThickness = 6;

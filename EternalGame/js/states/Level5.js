@@ -5,7 +5,7 @@ var Level5 = function(game){
 Level5.prototype = {
 	preload: function(){
 		//load level
-		console.log('lvl5');
+		//console.log('lvl5');
 		game.load.path = 'assets/img/';
 		game.load.tilemap('level5', 'level5Final.json', null, Phaser.Tilemap.TILED_JSON);
 	},
@@ -39,8 +39,8 @@ Level5.prototype = {
 		game.physics.arcade.collide(player, this.mapLayer);
 
 		//debug
-		game.debug.bodyInfo(player, 32, 32);
-		game.debug.body(player);
+		//game.debug.bodyInfo(player, 32, 32);
+		//game.debug.body(player);
 
 				//next lvl
 		if(player.x > 1280) {

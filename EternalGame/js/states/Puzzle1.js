@@ -73,12 +73,12 @@ Puzzle1.prototype = {
 		}
 
 		//debug
-		game.debug.bodyInfo(player, 32, 32);
-		game.debug.body(player);
+		//game.debug.bodyInfo(player, 32, 32);
+		//game.debug.body(player);
 
 		//next lvl
 		if(player.x > 1280) {
-			game.state.start('MonkeyTutorial');
+			game.state.start('Level7');
 		}
 	},
 	pColl:function(){

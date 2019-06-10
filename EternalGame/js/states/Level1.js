@@ -5,7 +5,7 @@ var Level1 = function(game){
 };
 Level1.prototype = {
 	preload: function(){
-		console.log('lvl1');
+		//console.log('lvl1');
 		//load level
 		game.load.path = 'assets/img/';
 		game.load.tilemap('Level1', 'Level1.json', null, Phaser.Tilemap.TILED_JSON);
@@ -38,7 +38,7 @@ Level1.prototype = {
 
 		//debugging
 		//game.debug.bodyInfo(player, 32, 32);
-		game.debug.body(player);
+		//game.debug.body(player);
 
 		//move to the next level when you pass the right side of the screen
 		if(player.x > 1280) {

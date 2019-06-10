@@ -4,7 +4,7 @@ var Cut3 = function(game) {
 
 Cut3.prototype = {
     create: function(){
-		console.log('cut3');
+		//console.log('cut3');
 		video = game.add.video('cut3');
 		video.addToWorld();
 		video.play(false);
