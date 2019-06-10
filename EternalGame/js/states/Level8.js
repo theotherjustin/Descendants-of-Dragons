@@ -72,7 +72,7 @@ Level8.prototype = {
 
 		//move to the next level when you pass the right side of the screen
 		if(player.x > 1280) {
-			game.state.start('Level1');
+			game.state.start('Cut4');
 		}
 
 	},
