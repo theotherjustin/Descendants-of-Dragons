@@ -78,7 +78,7 @@ Puzzle1.prototype = {
 
 		//next lvl
 		if(player.x > 1280) {
-			game.state.start('MonkeyTutorial');
+			game.state.start('Level7');
 		}
 	},
 	pColl:function(){
