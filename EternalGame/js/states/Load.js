@@ -16,6 +16,7 @@ Load.prototype = {
         game.load.audio('Swap', 'assets/audio/Swap.mp3');
         game.load.spritesheet('tilesheetf', 'assets/img/floors.png', 16, 16);
 		game.load.spritesheet('tilesheetp', 'assets/img/platforms.png', 16, 16);
+		game.load.video('cut1', 'assets/video/cut1.mp4');
 	},
 	create: function(){
 		//display loading..
