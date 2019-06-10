@@ -25,7 +25,7 @@ MonkeyTutorial.prototype = {
 		sign = game.add.sprite(0,620, 'key', 'sign');
 
 		//add player
-		player = new Player(game, 50, 450, 2, 0);
+		player = new Player(game, 50, 50, 2, 0);
 		game.add.existing(player);
 
 	},
