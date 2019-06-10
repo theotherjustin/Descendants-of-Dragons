@@ -57,7 +57,7 @@ OxTutorial.prototype = {
 
 	//next lvl
 	if(player.x > 1280) {
-		game.state.start('Level7');
+		game.state.start('Puzzle1');
 	}
 },
 blockColl:function(){
