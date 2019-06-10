@@ -7,7 +7,7 @@ Level8.prototype = {
 		console.log('lvl8');
 		//load level
 		game.load.path = 'assets/img/';
-		game.load.tilemap('level8', 'level8.json', null, Phaser.Tilemap.TILED_JSON);
+		game.load.tilemap('level8', 'Level8.json', null, Phaser.Tilemap.TILED_JSON);
 	},
 	create:function(){
 		//background

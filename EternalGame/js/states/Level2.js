@@ -6,8 +6,7 @@ Level2.prototype = {
 	preload: function(){
 		//load level
 		game.load.path = 'assets/img/';
-		game.load.tilemap('level2', 'level2.json', null, Phaser.Tilemap.TILED_JSON);
-		console.log('lvl2');
+		game.load.tilemap('level2', 'Level2.json', null, Phaser.Tilemap.TILED_JSON);
 	},
 	create:function(){
 		//background img
