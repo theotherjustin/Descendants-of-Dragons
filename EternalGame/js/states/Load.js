@@ -6,13 +6,13 @@ Load.prototype = {
 		game.load.atlas('playerKey', 'assets/img/playersheet.png', 'assets/img/playersheet.json');
 		game.load.image('bgRed', 'assets/img/Background-01.png');
 		game.load.image('bgPurple', 'assets/img/Background-02.png');
-		game.load.image('mainBack', 'assets/img/MainMenu.png');
+		game.load.image('mainBack', 'assets/img/mainmenu.png');
 		game.load.image('bubble', 'assets/img/bbl.png');
 		game.load.audio('Death', 'assets/audio/Death Sound.mp3');
 		game.load.audio('OpeningLoop', 'assets/audio/OpeningLoop.mp3');
 		game.load.audio('MidLoop', 'assets/audio/MidLoop.mp3');
 		game.load.audio('FinalLoop', 'assets/audio/FinalLoop.mp3');
-        game.load.audio('Jump', 'assets/audio/Jump.mp3');
+        game.load.audio('Jump', 'assets/audio/jump.mp3');
         game.load.audio('Respawn', 'assets/audio/Respawn Sound.mp3');
         game.load.audio('Swap', 'assets/audio/Swap.mp3');
         game.load.spritesheet('tilesheetf', 'assets/img/floors.png', 16, 16);
