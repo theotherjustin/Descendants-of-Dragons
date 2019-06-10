@@ -4,7 +4,8 @@ Load.prototype = {
 		//load all the assets
 		game.load.atlas('key', 'assets/img/spritesheet.png', 'assets/img/sprites.json');
 		game.load.atlas('playerKey', 'assets/img/playersheet.png', 'assets/img/playersheet.json');
-		game.load.image('Castle', 'assets/img/Castle.png');
+		game.load.image('bgRed', 'assets/img/Background-01.png');
+		game.load.image('bgPurple', 'assets/img/Background-02.png');
 		game.load.image('mainBack', 'assets/img/MainMenu.png');
 		game.load.image('bubble', 'assets/img/bbl.png');
 		game.load.audio('Death', 'assets/audio/Death Sound.mp3');
@@ -15,12 +16,16 @@ Load.prototype = {
         game.load.audio('Swap', 'assets/audio/Swap.mp3');
         game.load.spritesheet('tilesheetf', 'assets/img/floors.png', 16, 16);
 		game.load.spritesheet('tilesheetp', 'assets/img/platforms.png', 16, 16);
+		game.load.video('cut1', 'assets/video/cut1.mp4');
 	},
 	create: function(){
 		//display loading..
-        var sText = game.add.text(400, 200, 'Loading...', { fontSize: '32px', fill: '#FFFF' });
+        var sText = game.add.text(400, 200, 'Loading...', { font: 'Dancing Script', fontSize: '32px', fill: '#FFFF' });
     },
     update: function(){
+    	//game.scale.pageAlignHorizontally = true;
+		//game.scale.pageAlignVertically = true;
+		//game.scale.refresh();
     	//move to mainmenu
 		if (game.cache.isSoundDecoded('OpeningLoop')) {
 			game.state.start('MainMenu');

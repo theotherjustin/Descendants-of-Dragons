@@ -10,7 +10,7 @@ MonkeyTutorial.prototype = {
 	},
 	create:function(){
 		//background img
-		castle = game.add.tileSprite(0,0,1281, 721, 'Castle');
+		castle = game.add.tileSprite(0,0,1281, 721, 'bgRed');
 		//setup tilemap
 		this.map = game.add.tilemap('MonkeyTutorial');
 		this.map.addTilesetImage('platforms', 'tilesheetp');
@@ -22,11 +22,18 @@ MonkeyTutorial.prototype = {
 		game.physics.arcade.TILE_BIAS = 32;
 
 		//instruction sign
-		sign = game.add.sprite(0,620, 'key', 'sign');
+		sign1 = game.add.sprite(0,620, 'key', 'keyQ');
+		sign2 = game.add.sprite(80,620, 'key', 'keyW');
+		sign2.alpha = 0;
+		game.add.tween(sign2).to( { alpha: 1 }, 800, Phaser.Easing.Linear.None, true, 0);
+		//sign3 = game.add.sprite(160,620, 'key', 'keyE');
+
 
 		//add player
 		player = new Player(game, 50, 50, 2, 0);
 		game.add.existing(player);
+		player.bunny = true;
+		player.monkey = true;
 
 	},
 	update:function(){
@@ -40,7 +47,7 @@ MonkeyTutorial.prototype = {
 
 		//move to the next level when you pass the right side of the screen
 		if(player.x > 1280) {
-			game.state.start('Level2');
+			game.state.start('Level5');
 		}
 	}
 };

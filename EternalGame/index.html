@@ -1,18 +1,29 @@
-<!DOCTYPE html> 
-<html lang="en"> 
-<head> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
 	<meta charset="UTF-8" />
 	<title>Descendants of Dragons</title>
+	<link href="https://fonts.googleapis.com/css?family=Akronim|Dancing+Script&display=swap" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+<script>
+  WebFont.load({
+    google: {
+      families: ['Akronim', 'Dancing Script']
+    }
+  });
+</script>
 	<script type="text/javascript" src="framework/phaser.min.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
 	<script type="text/javascript" src="js/states/Load.js"></script>
 	<script type="text/javascript" src="js/states/MainMenu.js"></script>
-	<script type="text/javascript" src="js/states/tutorial.js"></script>
+	<script type="text/javascript" src="js/states/BunTutorial.js"></script>
+	<script type="text/javascript" src="js/states/Cut1.js"></script>
 	<script type="text/javascript" src="js/states/MonkeyTutorial.js"></script>
 	<script type="text/javascript" src="js/states/Level1.js"></script>
 	<script type="text/javascript" src="js/states/Level2.js"></script>
-	<script type="text/javascript" src="js/states/Level3.js"></script>
+	<script type="text/javascript" src="js/states/OxTutorial.js"></script>
 	<script type="text/javascript" src="js/states/Level5.js"></script>
+	<script type="text/javascript" src="js/states/Level7.js"></script>
 	<script type="text/javascript" src="js/states/Level8.js"></script>
 	<script type="text/javascript" src="js/states/GameOver.js"></script>
 	<script type="text/javascript" src="js/prefabs/Player.js"></script>
@@ -21,6 +32,6 @@
 <body>
 	<!-- We don't need anything in the <body> -->
 	<!-- Phaser will make the <canvas> element for us 👍 -->
+		<div id="myGame"></div>
 </body>
 </html>
-

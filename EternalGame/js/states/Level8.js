@@ -10,7 +10,7 @@ Level8.prototype = {
 	},
 	create:function(){
 		//background
-		castle = game.add.tileSprite(0,0,1281, 721, 'Castle');
+		castle = game.add.tileSprite(0,0,1281, 721, 'bgPurple');
 		//tilemap setup
 		this.map = game.add.tilemap('level8');
 		this.map.addTilesetImage('floors', 'tilesheetf');
@@ -32,7 +32,9 @@ Level8.prototype = {
 
 		//create polution hazard
 		this.pollutionGroup = game.add.group();
-		var purp = game.add.sprite(610, 650, 'key', 'purp');
+		var purp = game.add.sprite(610, 650, 'key', 'poll1');
+		purp.animations.add("poll",['poll1', 'poll2'], 10, true);
+		purp.animations.play('poll');
 		purp.scale.setTo(3, 1);
 		game.physics.enable(purp, Phaser.Physics.ARCADE);
 		//makes it stay there
@@ -41,11 +43,16 @@ Level8.prototype = {
 		this.pollutionGroup.add(purp);
 
 		//instruction sign
-		sign = game.add.sprite(0,620, 'key', 'sign');
+		sign1 = game.add.sprite(0,620, 'key', 'keyQ');
+		sign2 = game.add.sprite(80,620, 'key', 'keyW');
+		sign3 = game.add.sprite(160,620, 'key', 'keyE');
 
 		//add the player
 		player = new Player(game, 50, 550, 2, 0);
 		game.add.existing(player);
+		player.bunny = true;
+		player.monkey = true;
+		player.ox = true;
 
 	},
 	update:function(){

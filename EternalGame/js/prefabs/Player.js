@@ -9,11 +9,15 @@ var Player = function(game, x, y, jumps, SpiritType){ //Player prefab
 	this.body.maxVelocity.x = 500;
 	this.body.maxVelocity.y = 1500;
 	this.body.drag.setTo(2000, 0);
+	this.body.tilePadding.x = 32;
 	//animations
 	this.animations.add("spirit",['spirit1', 'spirit2', 'spirit3', 'spirit4', 'spirit5'], 10, true);
 	this.animations.add("bun",['bun3'], 10, true);
+	this.animations.add("bunJump",['bun5'], 10, true);
+	this.animations.add("bunJump2",['bun1'], 10, true);
 	this.animations.add("bunRun",['bun3', 'bun4', 'bun5', 'bun6', 'bun1', 'bun2'], 10, true);
 	this.animations.add("mon",['mon7'], 10, true);
+	this.animations.add("monJump",['mon5'], 10, true);
 	this.animations.add("monRun",['mon3','mon4','mon5','mon6','mon7'], 10, true);
 	this.animations.add("monClimb",['mon2'], 10, true);
 	this.animations.add("ox",['ox2'], 10, true);
@@ -24,9 +28,15 @@ var Player = function(game, x, y, jumps, SpiritType){ //Player prefab
 	this.spawnX = x;
 	this.spawnY = y;
 	this.jumps = jumps;
+	this.jumping = false;
 	this.respawning = false;
-	this.wallcling = false;
+	//this.wallcling = false;
+	this.rightWall = false;
+	this.leftWall = false;
 	this.SpiritType = SpiritType;
+	this.bunny = false;
+	this.monkey = false;
+	this.ox = false;
 	//reset to bunny's hitbox size
 	///this.body.setSize(90, 80, 10, 0);
 	this.body.setCircle(20, 0, 60);
@@ -58,59 +68,77 @@ Player.prototype.constructor = Player;
 Player.prototype.update = function() {
 	//Animations
 	//this.body.syncBounds = true;
-	if(this.body.velocity.x > 0){
+	if(this.body.velocity.x > 0 && this.leftWall == false && this.rightWall == false){
 		if (this.scale.x < 0){
 			this.scale.x *= -1;
 		}
-		if(this.SpiritType == 1){
-			this.animations.play('bunRun');
-		}
-		if(this.SpiritType == 2){
-			this.wallcling = false;
+		if(this.jumping == false){
+			if(this.SpiritType == 1){
+				this.animations.play('bunRun');
+			}
+			if(this.SpiritType == 2 ){
 				this.animations.play('monRun');
+			}
+			if(this.SpiritType == 3){
+				this.animations.play('oxRun');
+			}
 		}
-		if(this.SpiritType == 3){
-			this.animations.play('oxRun');
-		}
+		
 	}
-	if(this.body.velocity.x < 0){
+	if(this.body.velocity.x < 0 && this.leftWall == false && this.rightWall == false){
 		if (this.scale.x > 0){
 			this.scale.x *= -1;
 		}
-		if(this.SpiritType == 1){
-
-			this.animations.play('bunRun');
-		}
-
-		if(this.SpiritType == 2){
-			this.animations.play('monRun');
-		}
-
-		if(this.SpiritType == 3){
-			this.animations.play('oxRun');
+		if(this.jumping == false){
+			if(this.SpiritType == 1){
+				this.animations.play('bunRun');
+			}
+			if(this.SpiritType == 2){
+				this.animations.play('monRun');
+			}
+			if(this.SpiritType == 3){
+				this.animations.play('oxRun');
+			}
 		}
 	}
 	//idle
-	if(this.body.velocity.x == 0){
+	if(this.body.velocity.x == 0 && this.jumping == false && this.leftWall == false && this.rightWall == false){
 		if(this.SpiritType == 1){
-
-			this.animations.play('bun');
+				this.animations.play('bun');
 		}
 		if(this.SpiritType == 2){
-			this.animations.play('mon');
+				this.animations.play('mon');
 		}
 		if(this.SpiritType == 3){
 			this.animations.play('ox');
 		}
 	}
 
+	if(this.jumping == true){
+		if(this.SpiritType == 1){
+			if(this.body.velocity.y < 0){
+				this.animations.play('bunJump');
+			}else{
+				this.animations.play('bunJump2');
+			}
+			
+		}
+		if(this.SpiritType == 2){
+			this.animations.play('monJump');
+		}
+	}
+
 	//refresh double jump
 	if(this.body.blocked.down || this.body.touching.down){
+		this.jumping = false;
+		this.leftWall = false; 
+		this.rightWall = false;
 		this.jumps = 2;
 	}
 
 	//check for input and #of jumps or if player is on a platform
 	if(game.input.keyboard.justPressed(Phaser.Keyboard.UP) && ( (this.jumps > 0 && this.SpiritType == 1) || this.body.blocked.down || this.body.touching.down) ){
+		this.jumping = true;
 		this.body.velocity.y = -900;
 		this.jumps--;
 		this.jump.play('',0, 6, false);
@@ -138,16 +166,21 @@ Player.prototype.update = function() {
 		}
 
 	//WallSlide
-	if(game.input.keyboard.isDown(Phaser.Keyboard.RIGHT) && !player.body.blocked.down && player.body.blocked.right && this.SpiritType == 2){
+	if(game.input.keyboard.isDown(Phaser.Keyboard.RIGHT) && !player.body.blocked.down && (player.body.blocked.right || player.body.touching.right) && this.SpiritType == 2){
+		this.jumping = false;
+		//this.wallcling = true;
+		this.rightWall = true;
 		this.body.velocity.y = 0;
 		if (this.scale.x < 0){
 			this.scale.x *= -1;
 		}
-		//this.body.setSize(30, 100, 0, 0);
 		//this.wallcling = true;
 		this.animations.play('monClimb');
 	}
-	if(game.input.keyboard.isDown(Phaser.Keyboard.LEFT) && !player.body.blocked.down && player.body.blocked.left && this.SpiritType == 2){
+	if(game.input.keyboard.isDown(Phaser.Keyboard.LEFT)  && !player.body.blocked.down && (player.body.blocked.left || player.body.touching.left) && this.SpiritType == 2){
+		this.jumping = false;
+		//this.wallcling = true;
+		this.leftWall = true;
 		this.body.velocity.y = 0;
 		if (this.scale.x > 0){
 			this.scale.x *= -1;
@@ -157,36 +190,42 @@ Player.prototype.update = function() {
 	}
 
 	//Walljumping
-	if(game.input.keyboard.isDown(Phaser.Keyboard.LEFT) && !player.body.blocked.down && player.body.blocked.right && this.SpiritType == 2){
+	if(game.input.keyboard.isDown(Phaser.Keyboard.LEFT) && this.rightWall == true && this.SpiritType == 2){
+		this.jumping = true;
+		//this.wallcling = false;
+		this.rightWall = false;
 		this.body.velocity.y = -650;
 		this.body.velocity.x = -600;
-		this.wallcount = 0;
+		//this.wallcount = 0;
 		this.jump.play('',0, 6, false);
 	}
-	if(game.input.keyboard.isDown(Phaser.Keyboard.RIGHT) && !player.body.blocked.down && player.body.blocked.left && this.SpiritType == 2){
+	if(game.input.keyboard.isDown(Phaser.Keyboard.RIGHT) && this.leftWall == true && this.SpiritType == 2){
+		this.jumping = true;
+		//this.wallcling = false;
+		this.leftWall = false;
 		this.body.velocity.y = -650;
 		this.body.velocity.x = 600;
-		this.wallcount = 0;
+		//this.wallcount = 0;
 		this.jump.play('',0, 6, false);
 	}
 
 	//Transformations
-	if(game.input.keyboard.justPressed(Phaser.Keyboard.Q) && this.SpiritType != 1){
+	if(game.input.keyboard.justPressed(Phaser.Keyboard.Q) && this.SpiritType != 1 && this.bunny == true){
 		this.animations.play('bun');
 		this.body.syncBounds = false;
 		this.body.setCircle(40, 0 , 0);
 		this.SpiritType = 1;
 		this.swap.play('',0, 1.5, false);
 	}
-	if(game.input.keyboard.justPressed(Phaser.Keyboard.W) && this.SpiritType != 2){
+	if(game.input.keyboard.justPressed(Phaser.Keyboard.W) && this.SpiritType != 2 && this.monkey == true){
 		//console.log('lost');
 		this.animations.play('mon');
-		this.body.setSize(90, 80, 0, 0);
-		this.body.syncBounds = true;
+		this.body.setSize(120, 80, 0, 0);
+		//this.body.syncBounds = true;
 		this.SpiritType = 2;
 		this.swap.play('',0, 1.5, false);
 	}
-	if(game.input.keyboard.justPressed(Phaser.Keyboard.E) && this.SpiritType != 3){
+	if(game.input.keyboard.justPressed(Phaser.Keyboard.E) && this.SpiritType != 3 && this.ox == true){
 		this.animations.play('ox');
 		this.body.syncBounds = false;
 		this.body.setSize(120, 80, 10, 0);
@@ -223,8 +262,8 @@ Player.prototype.respawn = function(){
 	emitter.setYSpeed(350, 700);
 	emitter.setAlpha(0.25, 1);
 	emitter.start(false, 2000, 1, 50);
-		//game.add.tween(emitter).to( { alpha: 0 }, 2000, Phaser.Easing.Linear.None, true, 0);
-		game.add.tween(this).to( { alpha: 1 }, 800, Phaser.Easing.Linear.None, true, 0);
-		this.respawning = false;
+	//game.add.tween(emitter).to( { alpha: 0 }, 2000, Phaser.Easing.Linear.None, true, 0);
+	game.add.tween(this).to( { alpha: 1 }, 800, Phaser.Easing.Linear.None, true, 0);
+	this.respawning = false;
 
-	}
+}
