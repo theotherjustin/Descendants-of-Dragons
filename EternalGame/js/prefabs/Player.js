@@ -166,7 +166,7 @@ Player.prototype.update = function() {
 		}
 
 	//WallSlide
-	if(game.input.keyboard.isDown(Phaser.Keyboard.RIGHT) && !player.body.blocked.down && player.body.blocked.right && this.SpiritType == 2){
+	if(game.input.keyboard.isDown(Phaser.Keyboard.RIGHT) && !player.body.blocked.down && (player.body.blocked.right || player.body.touching.right) && this.SpiritType == 2){
 		this.jumping = false;
 		//this.wallcling = true;
 		this.rightWall = true;
@@ -177,7 +177,7 @@ Player.prototype.update = function() {
 		//this.wallcling = true;
 		this.animations.play('monClimb');
 	}
-	if(game.input.keyboard.isDown(Phaser.Keyboard.LEFT)  && !player.body.blocked.down && player.body.blocked.left && this.SpiritType == 2){
+	if(game.input.keyboard.isDown(Phaser.Keyboard.LEFT)  && !player.body.blocked.down && (player.body.blocked.left || player.body.touching.left) && this.SpiritType == 2){
 		this.jumping = false;
 		//this.wallcling = true;
 		this.leftWall = true;
