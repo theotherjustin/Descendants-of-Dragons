@@ -53,7 +53,7 @@ Level2.prototype = {
 
         //to next level
         if(player.x > 1280) {
-        	game.state.start('Level3');
+        	game.state.start('OxTutorial');
         }
     },
     pColl:function(){

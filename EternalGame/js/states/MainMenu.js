@@ -58,7 +58,7 @@ MainMenu.prototype = {
 		if(game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)){
 			//this.main.stop();
 			this.timer.stop();
-			game.state.start('tutorial');
+			game.state.start('BunTutorial');
 		}
 	}
 

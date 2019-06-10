@@ -1,8 +1,8 @@
-var Level3 = function(game){
+var OxTutorial = function(game){
 	//define variables
 	var player;
 };
-Level3.prototype = {
+OxTutorial.prototype = {
 	preload: function(){
 		//load level
 		game.load.path = 'assets/img/';

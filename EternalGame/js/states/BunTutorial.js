@@ -1,4 +1,4 @@
-var tutorial = function(game){
+var BunTutorial = function(game){
 	//define variables
 	var player;
 	var flag;
@@ -9,7 +9,7 @@ var tutorial = function(game){
 	var sign;
 	var npcjumps = 2;
 };
-tutorial.prototype = {
+BunTutorial.prototype = {
 	preload: function(){
 		//load level
 		game.load.path = 'assets/img/';
