@@ -17,6 +17,7 @@ window.onload = function() {
     game.state.add('Load', Load);
     game.state.add('MainMenu', MainMenu);
     game.state.add('Cut1', Cut1);
+    game.state.add('Cut2', Cut2);
     game.state.add('Cut3', Cut3);
     game.state.add('BunTutorial', BunTutorial);
     game.state.add('MonkeyTutorial', MonkeyTutorial);

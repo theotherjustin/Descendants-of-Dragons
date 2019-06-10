@@ -56,7 +56,7 @@ Level2.prototype = {
 
         //to next level
         if(player.x > 1280) {
-        	game.state.start('MonkeyTutorial');
+        	game.state.start('Cut2');
         }
     },
     pColl:function(){
