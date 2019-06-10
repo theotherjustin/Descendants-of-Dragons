@@ -50,9 +50,9 @@ Level2.prototype = {
 			//collide with the pollution
 			game.physics.arcade.collide(player, this.pollutionGroup, this.pColl, null, this);
 		}
-		//debug
-		game.debug.bodyInfo(player, 32, 32);
-		game.debug.body(player);
+		// //debug
+		// game.debug.bodyInfo(player, 32, 32);
+		// game.debug.body(player);
 
         //to next level
         if(player.x > 1280) {

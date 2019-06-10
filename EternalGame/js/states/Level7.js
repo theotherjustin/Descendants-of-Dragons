@@ -97,9 +97,9 @@ Level7.prototype = {
 			game.physics.arcade.collide(player, this.pollutionGroup, this.pColl, null, this);
 		}
 
-		//debug
-		game.debug.bodyInfo(player, 32, 32);
-		game.debug.body(block);
+		// //debug
+		// game.debug.bodyInfo(player, 32, 32);
+		// game.debug.body(block);
 
 		//move to the next level when you pass the right side of the screen
 		if(player.x > 1280) {
