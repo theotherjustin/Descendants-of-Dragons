@@ -13,7 +13,7 @@ Load.prototype = {
 		game.load.audio('MidLoop', 'assets/audio/MidLoop.mp3');
 		game.load.audio('FinalLoop', 'assets/audio/FinalLoop.mp3');
         game.load.audio('Jump', 'assets/audio/jump.mp3');
-        game.load.audio('Respawn', 'assets/audio/Respawn Sound.mp3');
+        game.load.audio('Respawn', 'assets/audio/Respawn sound.mp3');
         game.load.audio('Swap', 'assets/audio/Swap.mp3');
         game.load.spritesheet('tilesheetf', 'assets/img/floors.png', 16, 16);
 		game.load.spritesheet('tilesheetp', 'assets/img/platforms.png', 16, 16);
