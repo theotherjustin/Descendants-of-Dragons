@@ -9,13 +9,14 @@ var game;
 /*
 
 */
-// wait for browser to load 
-window.onload = function() {  
+// wait for browser to load
+window.onload = function() {
     // define game
     game = new Phaser.Game(1280,720, Phaser.AUTO, 'myGame');
     // define states
     game.state.add('Load', Load);
     game.state.add('MainMenu', MainMenu);
+    game.state.add('Cut1', Cut1);
     game.state.add('BunTutorial', BunTutorial);
     game.state.add('MonkeyTutorial', MonkeyTutorial);
 	game.state.add('Level1', Level1);
