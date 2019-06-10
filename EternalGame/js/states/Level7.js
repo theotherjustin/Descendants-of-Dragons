@@ -5,6 +5,7 @@ var Level7 = function(game){
 Level7.prototype = {
 	preload: function(){
 		//load level
+		console.log('lvl7');
 		game.load.path = 'assets/img/';
 		game.load.tilemap('level7', 'level7.json', null, Phaser.Tilemap.TILED_JSON);
 	},
@@ -42,7 +43,7 @@ Level7.prototype = {
 		purp.body.moves = false;
 		this.pollutionGroup.add(purp);
 
-		
+
 		pollblock = game.add.sprite(420,-30, 'key', 'block');
 		game.physics.enable(pollblock,Phaser.Physics.ARCADE);
 		pollblock.body.collideWorldBounds = false;
@@ -52,7 +53,7 @@ Level7.prototype = {
 		pollblock.body.moves = false;
 		this.pollutionGroup.add(pollblock);
 
-		//instruction sign 
+		//instruction sign
 		sign1 = game.add.sprite(0,620, 'key', 'keyQ');
 		sign2 = game.add.sprite(80,620, 'key', 'keyW');
 		sign3 = game.add.sprite(160,620, 'key', 'keyE');
