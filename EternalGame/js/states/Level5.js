@@ -5,6 +5,7 @@ var Level5 = function(game){
 Level5.prototype = {
 	preload: function(){
 		//load level
+		console.log('lvl5');
 		game.load.path = 'assets/img/';
 		game.load.tilemap('level5', 'level5Final.json', null, Phaser.Tilemap.TILED_JSON);
 	},
@@ -43,7 +44,7 @@ Level5.prototype = {
 
 				//next lvl
 		if(player.x > 1280) {
-		game.state.start('OxTutorial');
+		game.state.start('Cut3');
 		}
 
 	}

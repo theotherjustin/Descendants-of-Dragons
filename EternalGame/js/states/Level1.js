@@ -5,6 +5,7 @@ var Level1 = function(game){
 };
 Level1.prototype = {
 	preload: function(){
+		console.log('lvl1');
 		//load level
 		game.load.path = 'assets/img/';
 		game.load.tilemap('Level1', 'Level1.json', null, Phaser.Tilemap.TILED_JSON);

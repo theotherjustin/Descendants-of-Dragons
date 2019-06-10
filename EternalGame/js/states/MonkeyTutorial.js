@@ -4,6 +4,7 @@ var MonkeyTutorial = function(game){
 };
 MonkeyTutorial.prototype = {
 	preload: function(){
+		console.log('MonkeyTutorial');
 		//load level
 		game.load.path = 'assets/img/';
 		game.load.tilemap('MonkeyTutorial', 'MonkeyTutorial.json', null, Phaser.Tilemap.TILED_JSON);

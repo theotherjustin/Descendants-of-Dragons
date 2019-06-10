@@ -7,6 +7,7 @@ Level2.prototype = {
 		//load level
 		game.load.path = 'assets/img/';
 		game.load.tilemap('level2', 'level2.json', null, Phaser.Tilemap.TILED_JSON);
+		console.log('lvl2');
 	},
 	create:function(){
 		//background img
@@ -55,7 +56,7 @@ Level2.prototype = {
 
         //to next level
         if(player.x > 1280) {
-        	game.state.start('MonkeyTutorial');
+        	game.state.start('Cut2');
         }
     },
     pColl:function(){

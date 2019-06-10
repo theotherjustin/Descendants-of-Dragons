@@ -4,6 +4,7 @@ var OxTutorial = function(game){
 };
 OxTutorial.prototype = {
 	preload: function(){
+		console.log('OxTutorial');
 		//load level
 		game.load.path = 'assets/img/';
 		game.load.tilemap('level3', 'level3Final.json', null, Phaser.Tilemap.TILED_JSON);
