@@ -56,6 +56,13 @@ var Player = function(game, x, y, jumps, SpiritType){ //Player prefab
 		game.bgMusic.play('', 0, 1, true);
 		game.bgMusic = game.bgMusic.volume * 2;
 	}
+	if(this.gameState == "Level7") {
+		game.bgMusic.volume = game.bgMusic.volume * 0.33;
+		game.bgMusic.stop();
+		game.bgMusic = game.add.audio('FinalLoop', 1, true);  //background music
+		game.bgMusic.play('', 0, 1, true);
+		game.bgMusic = game.bgMusic.volume * 2;
+	}
 
 
 }
