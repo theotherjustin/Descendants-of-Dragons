@@ -76,6 +76,7 @@ BunTutorial.prototype = {
 	        qText = game.add.text(player.x, player.y - 80, 'Q', { fontSize: '40px', fill: '#ffffff' });
 	        qText.anchor.setTo(0.5);
 	        game.add.tween(sign).to( { alpha: 1 }, 800, Phaser.Easing.Linear.None, true, 0);
+	        player.bunny = true;
 			player.body.moves = false;
 			flag = true;
 		}

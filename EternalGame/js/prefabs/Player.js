@@ -32,6 +32,9 @@ var Player = function(game, x, y, jumps, SpiritType){ //Player prefab
 	this.respawning = false;
 	this.wallcling = false;
 	this.SpiritType = SpiritType;
+	this.bunny = false;
+	this.monkey = false;
+	this.ox = false;
 	//reset to bunny's hitbox size
 	///this.body.setSize(90, 80, 10, 0);
 	this.body.setCircle(20, 0, 60);
@@ -71,7 +74,7 @@ Player.prototype.update = function() {
 			if(this.SpiritType == 1){
 				this.animations.play('bunRun');
 			}
-			if(this.SpiritType == 2){
+			if(this.SpiritType == 2 && this.wallcling == false){
 				this.animations.play('monRun');
 			}
 			if(this.SpiritType == 3){
@@ -88,7 +91,7 @@ Player.prototype.update = function() {
 			if(this.SpiritType == 1){
 				this.animations.play('bunRun');
 			}
-			if(this.SpiritType == 2){
+			if(this.SpiritType == 2 && this.wallcling == false){
 				this.animations.play('monRun');
 			}
 			if(this.SpiritType == 3){
@@ -97,7 +100,7 @@ Player.prototype.update = function() {
 		}
 	}
 	//idle
-	if(this.body.velocity.x == 0 && this.jumping == false){
+	if(this.body.velocity.x == 0 && this.jumping == false && this.wallcling == false){
 		if(this.SpiritType == 1){
 				this.animations.play('bun');
 		}
@@ -118,7 +121,7 @@ Player.prototype.update = function() {
 			}
 			
 		}
-		if(this.SpiritType == 2 && this.body.blocked.right == false && this.body.blocked.left == false){
+		if(this.SpiritType == 2){
 			this.animations.play('monJump');
 		}
 	}
@@ -126,6 +129,7 @@ Player.prototype.update = function() {
 	//refresh double jump
 	if(this.body.blocked.down || this.body.touching.down){
 		this.jumping = false;
+		this.wallcling = false;
 		this.jumps = 2;
 	}
 
@@ -161,16 +165,17 @@ Player.prototype.update = function() {
 	//WallSlide
 	if(game.input.keyboard.isDown(Phaser.Keyboard.RIGHT) && !player.body.blocked.down && player.body.blocked.right && this.SpiritType == 2){
 		this.jumping = false;
+		this.wallcling = true;
 		this.body.velocity.y = 0;
 		if (this.scale.x < 0){
 			this.scale.x *= -1;
 		}
-		//this.body.setSize(30, 100, 0, 0);
 		//this.wallcling = true;
 		this.animations.play('monClimb');
 	}
 	if(game.input.keyboard.isDown(Phaser.Keyboard.LEFT) && !player.body.blocked.down && player.body.blocked.left && this.SpiritType == 2){
 		this.jumping = false;
+		this.wallcling = true;
 		this.body.velocity.y = 0;
 		if (this.scale.x > 0){
 			this.scale.x *= -1;
@@ -182,6 +187,7 @@ Player.prototype.update = function() {
 	//Walljumping
 	if(game.input.keyboard.isDown(Phaser.Keyboard.LEFT) && !player.body.blocked.down && player.body.blocked.right && this.SpiritType == 2){
 		this.jumping = true;
+		this.wallcling = false;
 		this.body.velocity.y = -650;
 		this.body.velocity.x = -600;
 		this.wallcount = 0;
@@ -189,6 +195,7 @@ Player.prototype.update = function() {
 	}
 	if(game.input.keyboard.isDown(Phaser.Keyboard.RIGHT) && !player.body.blocked.down && player.body.blocked.left && this.SpiritType == 2){
 		this.jumping = true;
+		this.wallcling = false;
 		this.body.velocity.y = -650;
 		this.body.velocity.x = 600;
 		this.wallcount = 0;
@@ -196,22 +203,22 @@ Player.prototype.update = function() {
 	}
 
 	//Transformations
-	if(game.input.keyboard.justPressed(Phaser.Keyboard.Q) && this.SpiritType != 1){
+	if(game.input.keyboard.justPressed(Phaser.Keyboard.Q) && this.SpiritType != 1 && this.bunny == true){
 		this.animations.play('bun');
 		this.body.syncBounds = false;
 		this.body.setCircle(40, 0 , 0);
 		this.SpiritType = 1;
 		this.swap.play('',0, 1.5, false);
 	}
-	if(game.input.keyboard.justPressed(Phaser.Keyboard.W) && this.SpiritType != 2){
+	if(game.input.keyboard.justPressed(Phaser.Keyboard.W) && this.SpiritType != 2 && this.monkey == true){
 		//console.log('lost');
 		this.animations.play('mon');
-		this.body.setSize(90, 80, 0, 0);
-		this.body.syncBounds = true;
+		this.body.setSize(120, 80, 0, 0);
+		//this.body.syncBounds = true;
 		this.SpiritType = 2;
 		this.swap.play('',0, 1.5, false);
 	}
-	if(game.input.keyboard.justPressed(Phaser.Keyboard.E) && this.SpiritType != 3){
+	if(game.input.keyboard.justPressed(Phaser.Keyboard.E) && this.SpiritType != 3 && this.ox == true){
 		this.animations.play('ox');
 		this.body.syncBounds = false;
 		this.body.setSize(120, 80, 10, 0);

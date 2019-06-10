@@ -31,11 +31,17 @@ OxTutorial.prototype = {
 
 		//instruction sign
 		sign1 = game.add.sprite(0,620, 'key', 'keyQ');
-		sign2 = game.add.sprite(80,620, 'key', 'keyE');
+		sign2 = game.add.sprite(80,620, 'key', 'keyW');
+		sign3 = game.add.sprite(80,620, 'key', 'keyE');
+		sign3.alpha = 0;
+		game.add.tween(sign3).to( { alpha: 1 }, 800, Phaser.Easing.Linear.None, true, 0);
 
 		//add the player
 		player = new Player(game, 20, 550, 2, 0);
 		game.add.existing(player);
+		player.bunny = true;
+		player.monkey = true;
+		player.ox = true;
 
 	},
 	update:function(){
@@ -50,7 +56,7 @@ OxTutorial.prototype = {
 
 	//next lvl
 	if(player.x > 1280) {
-		game.state.start('Level5');
+		game.state.start('Level8');
 	}
 },
 blockColl:function(){

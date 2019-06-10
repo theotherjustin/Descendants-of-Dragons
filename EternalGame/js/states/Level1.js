@@ -28,7 +28,7 @@ Level1.prototype = {
 		//add player
 		player = new Player(game, 50, 450, 2, 0);
 		game.add.existing(player);
-
+		player.bunny = true;
 	},
 	update:function(){
 		//collide with the map

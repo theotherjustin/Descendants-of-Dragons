@@ -38,6 +38,8 @@ Level2.prototype = {
 		//add the player
 		player = new Player(game, 20, 550, 2, 0);
 		game.add.existing(player);
+		player.bunny = true;
+
 
 	},
 	update:function(){
@@ -53,7 +55,7 @@ Level2.prototype = {
 
         //to next level
         if(player.x > 1280) {
-        	game.state.start('OxTutorial');
+        	game.state.start('MonkeyTutorial');
         }
     },
     pColl:function(){

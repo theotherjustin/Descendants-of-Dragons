@@ -50,6 +50,9 @@ Level8.prototype = {
 		//add the player
 		player = new Player(game, 50, 550, 2, 0);
 		game.add.existing(player);
+		player.bunny = true;
+		player.monkey = true;
+		player.ox = true;
 
 	},
 	update:function(){

@@ -24,12 +24,16 @@ MonkeyTutorial.prototype = {
 		//instruction sign
 		sign1 = game.add.sprite(0,620, 'key', 'keyQ');
 		sign2 = game.add.sprite(80,620, 'key', 'keyW');
-		sign3 = game.add.sprite(160,620, 'key', 'keyE');
+		sign2.alpha = 0;
+		game.add.tween(sign2).to( { alpha: 1 }, 800, Phaser.Easing.Linear.None, true, 0);
+		//sign3 = game.add.sprite(160,620, 'key', 'keyE');
 
 
 		//add player
 		player = new Player(game, 50, 450, 2, 0);
 		game.add.existing(player);
+		player.bunny = true;
+		player.monkey = true;
 
 	},
 	update:function(){
@@ -43,7 +47,7 @@ MonkeyTutorial.prototype = {
 
 		//move to the next level when you pass the right side of the screen
 		if(player.x > 1280) {
-			game.state.start('Level2');
+			game.state.start('Level5');
 		}
 	}
 };
