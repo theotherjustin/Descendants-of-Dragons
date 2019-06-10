@@ -30,7 +30,9 @@ var Player = function(game, x, y, jumps, SpiritType){ //Player prefab
 	this.jumps = jumps;
 	this.jumping = false;
 	this.respawning = false;
-	this.wallcling = false;
+	//this.wallcling = false;
+	this.rightWall = false;
+	this.leftWall = false;
 	this.SpiritType = SpiritType;
 	this.bunny = false;
 	this.monkey = false;
@@ -66,7 +68,7 @@ Player.prototype.constructor = Player;
 Player.prototype.update = function() {
 	//Animations
 	//this.body.syncBounds = true;
-	if(this.body.velocity.x > 0){
+	if(this.body.velocity.x > 0 && this.leftWall == false && this.rightWall == false){
 		if (this.scale.x < 0){
 			this.scale.x *= -1;
 		}
@@ -74,7 +76,7 @@ Player.prototype.update = function() {
 			if(this.SpiritType == 1){
 				this.animations.play('bunRun');
 			}
-			if(this.SpiritType == 2 && this.wallcling == false){
+			if(this.SpiritType == 2 ){
 				this.animations.play('monRun');
 			}
 			if(this.SpiritType == 3){
@@ -83,7 +85,7 @@ Player.prototype.update = function() {
 		}
 		
 	}
-	if(this.body.velocity.x < 0){
+	if(this.body.velocity.x < 0 && this.leftWall == false && this.rightWall == false){
 		if (this.scale.x > 0){
 			this.scale.x *= -1;
 		}
@@ -91,7 +93,7 @@ Player.prototype.update = function() {
 			if(this.SpiritType == 1){
 				this.animations.play('bunRun');
 			}
-			if(this.SpiritType == 2 && this.wallcling == false){
+			if(this.SpiritType == 2){
 				this.animations.play('monRun');
 			}
 			if(this.SpiritType == 3){
@@ -100,7 +102,7 @@ Player.prototype.update = function() {
 		}
 	}
 	//idle
-	if(this.body.velocity.x == 0 && this.jumping == false && this.wallcling == false){
+	if(this.body.velocity.x == 0 && this.jumping == false && this.leftWall == false && this.rightWall == false){
 		if(this.SpiritType == 1){
 				this.animations.play('bun');
 		}
@@ -129,7 +131,8 @@ Player.prototype.update = function() {
 	//refresh double jump
 	if(this.body.blocked.down || this.body.touching.down){
 		this.jumping = false;
-		this.wallcling = false;
+		this.leftWall = false; 
+		this.rightWall = false;
 		this.jumps = 2;
 	}
 
@@ -165,7 +168,8 @@ Player.prototype.update = function() {
 	//WallSlide
 	if(game.input.keyboard.isDown(Phaser.Keyboard.RIGHT) && !player.body.blocked.down && player.body.blocked.right && this.SpiritType == 2){
 		this.jumping = false;
-		this.wallcling = true;
+		//this.wallcling = true;
+		this.rightWall = true;
 		this.body.velocity.y = 0;
 		if (this.scale.x < 0){
 			this.scale.x *= -1;
@@ -173,9 +177,10 @@ Player.prototype.update = function() {
 		//this.wallcling = true;
 		this.animations.play('monClimb');
 	}
-	if(game.input.keyboard.isDown(Phaser.Keyboard.LEFT) && !player.body.blocked.down && player.body.blocked.left && this.SpiritType == 2){
+	if(game.input.keyboard.isDown(Phaser.Keyboard.LEFT)  && !player.body.blocked.down && player.body.blocked.left && this.SpiritType == 2){
 		this.jumping = false;
-		this.wallcling = true;
+		//this.wallcling = true;
+		this.leftWall = true;
 		this.body.velocity.y = 0;
 		if (this.scale.x > 0){
 			this.scale.x *= -1;
@@ -185,20 +190,22 @@ Player.prototype.update = function() {
 	}
 
 	//Walljumping
-	if(game.input.keyboard.isDown(Phaser.Keyboard.LEFT) && !player.body.blocked.down && player.body.blocked.right && this.SpiritType == 2){
+	if(game.input.keyboard.isDown(Phaser.Keyboard.LEFT) && this.rightWall == true && this.SpiritType == 2){
 		this.jumping = true;
-		this.wallcling = false;
+		//this.wallcling = false;
+		this.rightWall = false;
 		this.body.velocity.y = -650;
 		this.body.velocity.x = -600;
-		this.wallcount = 0;
+		//this.wallcount = 0;
 		this.jump.play('',0, 6, false);
 	}
-	if(game.input.keyboard.isDown(Phaser.Keyboard.RIGHT) && !player.body.blocked.down && player.body.blocked.left && this.SpiritType == 2){
+	if(game.input.keyboard.isDown(Phaser.Keyboard.RIGHT) && this.leftWall == true && this.SpiritType == 2){
 		this.jumping = true;
-		this.wallcling = false;
+		//this.wallcling = false;
+		this.leftWall = false;
 		this.body.velocity.y = -650;
 		this.body.velocity.x = 600;
-		this.wallcount = 0;
+		//this.wallcount = 0;
 		this.jump.play('',0, 6, false);
 	}
 

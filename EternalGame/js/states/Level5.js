@@ -24,7 +24,6 @@ Level5.prototype = {
 		//instruction sign
 		sign1 = game.add.sprite(0,620, 'key', 'keyQ');
 		sign2 = game.add.sprite(80,620, 'key', 'keyW');
-		sign3 = game.add.sprite(160,620, 'key', 'keyE');
 
 		//add the player
 		player = new Player(game, 20, 550, 2, 0);
